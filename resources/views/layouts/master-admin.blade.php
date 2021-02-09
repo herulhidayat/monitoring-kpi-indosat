@@ -10,7 +10,7 @@
         <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         
         <!-- Title -->
-        <title>Connect - Responsive Admin Dashboard Template</title>
+        <title>Monitoring</title>
 
         @stack('prepend-style')
         @include('includes.admin.style')

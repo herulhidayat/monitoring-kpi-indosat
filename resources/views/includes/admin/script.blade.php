@@ -13,3 +13,5 @@
 <script src="{{asset('admin/plugins/flot/jquery.flot.tooltip.min.js')}}"></script>
 <script src="{{asset('admin/js/connect.min.js')}}"></script>
 <script src="{{asset('admin/js/pages/dashboard.js')}}"></script>
+<script src="{{asset('admin/plugins/DataTables/datatables.min.js')}}"></script>
+<script src="{{asset('admin/js/pages/datatables.js')}}"></script>

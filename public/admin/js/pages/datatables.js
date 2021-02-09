@@ -3,7 +3,9 @@ $(document).ready(function() {
     "use strict";
     $('#zero-conf').DataTable();
 
-    $('#complex-header').DataTable();
+    $('#complex-header').DataTable( {
+        "scrollX" : true
+    } );
 
     var groupColumn = 2;
     var table = $('#row-grouping').DataTable({

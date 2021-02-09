@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.dashboard');
 });
+
+Route::get('/site-data', function () {
+    return view('pages.site-data');
+});
+
+Route::get('/site-transaction', function () {
+    return view('pages.site-transaction');
+});
+
+Route::get('/outlet-data', function () {
+    return view('pages.outlet-data');
+});
+
+Route::get('/outlet-transaction', function () {
+    return view('pages.outlet-transaction');
+});

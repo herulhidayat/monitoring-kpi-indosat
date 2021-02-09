@@ -68,6 +68,7 @@ body {
 .page-container {
     margin-left: 310px;
     padding-top: 20px;
+    
 }
 
 .compact-sidebar .page-container {
@@ -89,7 +90,7 @@ body {
 .dark-theme .accordion-menu > li > a:hover,
 .accordion-menu > li.open > a,
 .dark-theme .accordion-menu > li.open > a {
-    color: rgba(255,255,255,1)!important;
+    color: rgba(230,0,0,7)!important;
     background: transparent!important;
 }
 
@@ -121,13 +122,13 @@ body {
 .accordion-menu li ul li a.active,
 .dark-theme .accordion-menu li ul li a:hover,
 .dark-theme .accordion-menu li ul li a.active {
-    color: #fff!important;
+    color: #e60000!important;
 }
 
 .accordion-menu > li.active-page > a,
 .dark-theme .accordion-menu > li.active-page > a {
     color: #fff!important;
-    background: rgba(255,255,255,.3)!important;
+    background: rgba(230,0,0,.7)!important;
 }
 
 /* UI */
