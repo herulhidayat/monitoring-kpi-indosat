@@ -15,37 +15,30 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
-                        <table id="complex-header" class="display" style="width:100%">
+                        <table id="zero-conf" class="display" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th rowspan="2">Outlet ID</th>
-                                    <th rowspan="2">Outlet Name</th>
-                                    <th rowspan="2">Saldo</th>
-                                    <th rowspan="2">Transaksi MOBO</th>
-                                    <th colspan="3">Sultan</th>
-                                    <th colspan="3">Jawara</th>
+                                    <th rowspan="2">ID CSO</th>
+                                    <th rowspan="2">Nama CSO</th>
+                                    <th rowspan="2">Micro Cluster</th>
+                                    <th colspan="3">Q-URO</th>
                                 </tr>
                                 <tr>
                                     <th>Target</th>
                                     <th>Ach</th>
                                     <th>Percen</th>
-                                    <th>Target</th>
-                                    <th>Ach</th>
-                                    <th>Percen</th>
+                                    <th>Nilai</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1232131</td>
-                                    <td>herul cell 09</td>
-                                    <td>1.000.000</td>
-                                    <td>500.000</td>
-                                    <td>100.000</td>
-                                    <td>90.000</td>
-                                    <td>90%</td>
-                                    <td>100.000</td>
-                                    <td>90.000</td>
-                                    <td>90%</td>
+                                    <td>BYGMKS01</td>
+                                    <td>Sudirman</td>
+                                    <td>Makassar Kota 2</td>
+                                    <td>10</td>
+                                    <td>10</td>
+                                    <td>9</td>
+                                    <td>5</td>
                                 </tr>
                             </tbody>
                         </table>

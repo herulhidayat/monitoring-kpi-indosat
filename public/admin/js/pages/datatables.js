@@ -1,7 +1,9 @@
 $(document).ready(function() {
     
     "use strict";
-    $('#zero-conf').DataTable();
+    $('#zero-conf').DataTable( {
+        "scrollX" : true
+    } );
 
     $('#complex-header').DataTable( {
         "scrollX" : true

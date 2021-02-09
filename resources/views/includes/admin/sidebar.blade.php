@@ -1,5 +1,5 @@
 <div class="page-sidebar">
-    <div class="logo-box"><a href="#" class="logo-text">monitoring</a><a href="#" id="sidebar-close"><i class="material-icons">close</i></a> <a href="#" id="sidebar-state"><i class="material-icons">adjust</i><i class="material-icons compact-sidebar-icon">panorama_fish_eye</i></a></div>
+    <div class="logo-box"><a href="#" class="logo-text">monitoring</a><a href="" id="sidebar-close"><i class="material-icons">close</i></a> <a href="" id="sidebar-state"><i class="material-icons">adjust</i><i class="material-icons compact-sidebar-icon">panorama_fish_eye</i></a></div>
     <div class="page-sidebar-inner slimscroll">
         <ul class="accordion-menu">
             <li class="sidebar-title">
@@ -34,41 +34,38 @@
                 <a><i class="material-icons-outlined">show_chart</i>KPI CSO<i class="material-icons has-sub-menu">add</i></a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">Score</a>
+                        <a href="/kpi-score" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">Score</a>
                     </li>
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">Not Order</a>
+                        <a href="/kpi-msa" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">MSA</a>
                     </li>
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">MSA</a>
+                        <a href="/kpi-omb" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">OMB</a>
                     </li>
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">OMB</a>
+                        <a href="/kpi-qsso" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">QSSO</a>
                     </li>
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">QSSO</a>
+                        <a href="/kpi-quro" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">QURO</a>
                     </li>
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">QURO</a>
+                        <a href="/kpi-rguga" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">RGUGA</a>
                     </li>
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">RGUGA</a>
+                        <a href="/kpi-ssohvc" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">SSO HVC</a>
                     </li>
                     <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">SSO HVC</a>
-                    </li>
-                    <li>
-                        <a href="/" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">NOM</a>
+                        <a href="/kpi-nom" class="{{ (request()->routeIs('.*')) ? 'active' : '' }}">NOM</a>
                     </li>
                 </ul>
             </li>
-            <li>
+            <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
                 <a href="mailbox.html"><i class="material-icons-outlined">book</i>Kamus</a>
             </li>
-            <li>
+            <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
                 <a href="mailbox.html"><i class="material-icons-outlined">cloud_upload</i>Import Data</a>
             </li>
-            <li>
+            <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
                 <a href="profile.html"><i class="material-icons-outlined">account_circle</i>User</a>
             </li>
         </ul>

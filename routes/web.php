@@ -20,7 +20,6 @@ Route::get('/', function () {
 Route::get('/site-data', function () {
     return view('pages.site-data');
 });
-
 Route::get('/site-transaction', function () {
     return view('pages.site-transaction');
 });
@@ -28,7 +27,31 @@ Route::get('/site-transaction', function () {
 Route::get('/outlet-data', function () {
     return view('pages.outlet-data');
 });
-
 Route::get('/outlet-transaction', function () {
     return view('pages.outlet-transaction');
+});
+
+Route::get('/kpi-score', function () {
+    return view('pages.kpi-score');
+});
+Route::get('/kpi-msa', function () {
+    return view('pages.kpi-msa');
+});
+Route::get('/kpi-omb', function () {
+    return view('pages.kpi-omb');
+});
+Route::get('/kpi-qsso', function () {
+    return view('pages.kpi-qsso');
+});
+Route::get('/kpi-quro', function () {
+    return view('pages.kpi-quro');
+});
+Route::get('/kpi-rguga', function () {
+    return view('pages.kpi-rguga');
+});
+Route::get('/kpi-ssohvc', function () {
+    return view('pages.kpi-ssohvc');
+});
+Route::get('/kpi-nom', function () {
+    return view('pages.kpi-nom');
 });

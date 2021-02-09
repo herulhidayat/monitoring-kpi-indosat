@@ -1,1 +1,4 @@
 /* Write your custom CSS here */
+.dataTables_scrollBody thead tr[role="row"]{
+    visibility: collapse !important;
+}
