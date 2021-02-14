@@ -2,3 +2,12 @@
 .dataTables_scrollBody thead tr[role="row"]{
     visibility: collapse !important;
 }
+
+@font-face {
+    font-family: 'ooredooheavy';
+    src: url('../font/ooredoo-heavy-webfont.woff2') format('woff2'),
+         url('../font/ooredoo-heavy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

@@ -34,6 +34,8 @@ body {
 
 .logo-box a.logo-text {
     color: #fff;
+    text-transform: lowercase;
+    font-family: 'ooredooheavy', sans-serif;
 }
 
 .logo-box a.logo-text:hover {

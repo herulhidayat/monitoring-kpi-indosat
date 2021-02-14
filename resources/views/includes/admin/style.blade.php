@@ -5,6 +5,7 @@
 <link href="{{asset('admin/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 <link href="{{asset('admin/plugins/font-awesome/css/all.min.css')}}" rel="stylesheet">
 <link href="{{asset('admin/plugins/DataTables/datatables.min.css')}}" rel="stylesheet">
+<link href="{{asset('admin/plugins/font/stylesheet.css')}}" rel="stylesheet">
 
 
 <!-- Theme Styles -->
