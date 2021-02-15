@@ -15,3 +15,4 @@
 <script src="{{asset('admin/js/pages/dashboard.js')}}"></script>
 <script src="{{asset('admin/plugins/DataTables/datatables.min.js')}}"></script>
 <script src="{{asset('admin/js/pages/datatables.js')}}"></script>
+<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
