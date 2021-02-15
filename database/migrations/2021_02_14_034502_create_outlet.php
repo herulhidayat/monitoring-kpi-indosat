@@ -15,10 +15,11 @@ class CreateOutlet extends Migration
     {
         Schema::create('outlet', function (Blueprint $table) {
             $table->id();
+            $table->string('id_site');
+            $table->string('id_user');
             $table->string('outlet_id')->unique();
             $table->string('outlet_name');
             $table->string('micro_cluster');
-            $table->string('site_area');
             $table->string('category');
             $table->string('longitude');
             $table->string('latitude');

@@ -15,6 +15,7 @@ class CreateKpi extends Migration
     {
         Schema::create('kpi', function (Blueprint $table) {
             $table->id();
+            $table->string('id_user');
             $table->string('total_outlet');
             $table->string('not_order');
             $table->string('msa_target');

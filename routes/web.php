@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.dashboard');
+    return view('welcome');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('pages.dashboard');
+})->name('dashboard');
 
 Route::get('/site-data', function () {
     return view('pages.site-data');
@@ -55,3 +59,5 @@ Route::get('/kpi-ssohvc', function () {
 Route::get('/kpi-nom', function () {
     return view('pages.kpi-nom');
 });
+
+

@@ -17,7 +17,12 @@
                     <a class="dropdown-item" href="#">Settings &amp Privacy</a>
                     <a class="dropdown-item" href="#">Switch Account</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Log out</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                            this.closest('form').submit();">Log out</a>
+                                        </form>
                 </div>
             </li>
             <li class="nav-item">
