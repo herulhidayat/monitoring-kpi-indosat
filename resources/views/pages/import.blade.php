@@ -18,7 +18,7 @@
                 <div class="card" id="blockui-card-1">
                     <div class="card-body">
                         <h5 class="card-title">Import Data KPI dan Outlet</h5>
-                        <p>Silahkan klik "Pilih" di bawah kemudian cari file KPI yang telah ada, setelah itu kilik tombol "Submit"</p>
+                        <p>Silahkan klik "Browse.." di bawah kemudian cari file KPI yang telah ada, setelah itu kilik tombol "Submit"</p>
                         <form>
                             <div class="input-group">
                                 <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -32,7 +32,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Import Data Site</h5>
-                        <p>Silahkan klik "Pilih" di bawah kemudian cari file KPI yang telah ada, setelah itu kilik tombol "Submit"</p>
+                        <p>Silahkan klik "Browse.." di bawah kemudian cari file KPI yang telah ada, setelah itu kilik tombol "Submit"</p>
                         <form>
                             <div class="input-group">
                                 <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"> 
