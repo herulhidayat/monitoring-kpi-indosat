@@ -60,4 +60,8 @@ Route::get('/kpi-nom', function () {
     return view('pages.kpi-nom');
 });
 
+Route::get('/import', function () {
+    return view('pages.import');
+});
+
 

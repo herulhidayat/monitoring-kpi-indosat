@@ -63,7 +63,7 @@
                 <a href="mailbox.html"><i class="material-icons-outlined">book</i>Kamus</a>
             </li>
             <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
-                <a href="mailbox.html"><i class="material-icons-outlined">cloud_upload</i>Import Data</a>
+                <a href="/import"><i class="material-icons-outlined">cloud_upload</i>Import Data</a>
             </li>
             <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
                 <a href="profile.html"><i class="material-icons-outlined">account_circle</i>User</a>
