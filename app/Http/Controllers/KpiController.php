@@ -13,7 +13,47 @@ class KpiController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.kpi-score');
+    }
+
+    public function msa()
+    {
+        return view('pages.kpi-msa');
+    }
+
+    public function omb()
+    {
+        return view('pages.kpi-omb');
+    }
+
+    public function qsso()
+    {
+        return view('pages.kpi-qsso');
+    }
+
+    public function quro()
+    {
+        return view('pages.kpi-quro');
+    }
+
+    public function sc()
+    {
+        return view('pages.kpi-sc');
+    }
+
+    public function ssohvc()
+    {
+        return view('pages.kpi-ssohvc');
+    }
+
+    public function sqsso()
+    {
+        return view('pages.kpi-sqsso');
+    }
+
+    public function ssc()
+    {
+        return view('pages.kpi-ssc');
     }
 
     /**

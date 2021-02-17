@@ -13,8 +13,14 @@ class SiteController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.site-data');
     }
+
+    public function siteTransaction()
+    {
+        return view('pages.site-transaction');
+    }
+
 
     /**
      * Show the form for creating a new resource.

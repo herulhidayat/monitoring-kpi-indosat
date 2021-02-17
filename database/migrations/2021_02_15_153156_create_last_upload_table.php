@@ -15,8 +15,8 @@ class CreateLastUploadTable extends Migration
     {
         Schema::create('last_upload', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori');
-            $table->datetime('waktu_upload');
+            $table->string('kategori')->nullable();
+            $table->datetime('waktu_upload')->nullable();
             $table->timestamps();
         });
     }

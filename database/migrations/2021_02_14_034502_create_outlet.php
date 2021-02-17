@@ -15,22 +15,19 @@ class CreateOutlet extends Migration
     {
         Schema::create('outlet', function (Blueprint $table) {
             $table->id();
-            $table->string('id_site');
-            $table->string('id_user');
-            $table->string('outlet_id')->unique();
-            $table->string('outlet_name');
-            $table->string('micro_cluster');
-            $table->string('category');
-            $table->string('longitude');
-            $table->string('latitude');
-            $table->string('balance');
-            $table->string('mobo_transaction');
-            $table->string('sultan_target');
-            $table->string('sultan_ach');
-            $table->string('sultan_percen');
-            $table->string('jawara_target');
-            $table->string('jawara_ach');
-            $table->string('jawara_percen');
+            $table->string('outlet_id')->unique()->nullable();
+            $table->string('username')->nullable();
+            $table->string('outlet_name')->nullable();
+            $table->string('micro_cluster')->nullable();
+            $table->string('category')->nullable();
+            $table->string('balance')->nullable();
+            $table->string('mobo_transaction')->nullable();
+            $table->string('sultan_target')->nullable();
+            $table->string('sultan_ach')->nullable();
+            $table->string('sultan_percen')->nullable();
+            $table->string('jawara_target')->nullable();
+            $table->string('jawara_ach')->nullable();
+            $table->string('jawara_percen')->nullable();
             $table->timestamps();
         });
     }

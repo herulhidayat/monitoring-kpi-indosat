@@ -13,7 +13,12 @@ class OutletController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.outlet-data');
+    }
+
+    public function outletTransaction()
+    {
+        return view('pages.outlet-transaction');
     }
 
     /**

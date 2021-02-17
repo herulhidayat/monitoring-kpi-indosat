@@ -15,20 +15,20 @@ class CreateSite extends Migration
     {
         Schema::create('site', function (Blueprint $table) {
             $table->id();
-            $table->string('site_id')->unique();
-            $table->string('site_name');
-            $table->string('micro_cluster');
-            $table->string('coverage');
-            $table->string('status');
-            $table->string('outlet_surrounding');
-            $table->string('ono');
-            $table->string('total_outlet');
-            $table->string('uro');
-            $table->string('sso');
-            $table->string('quro');
-            $table->string('qsso');
-            $table->string('revenue');
-            $table->string('gap_revenue');
+            $table->string('site_id')->unique()->nullable();
+            $table->string('site_name')->nullable();
+            $table->string('micro_cluster')->nullable();
+            $table->string('coverage')->nullable();
+            $table->string('status')->nullable();
+            $table->string('outlet_surrounding')->nullable();
+            $table->string('ono')->nullable();
+            $table->string('total_outlet')->nullable();
+            $table->string('uro')->nullable();
+            $table->string('sso')->nullable();
+            $table->string('quro')->nullable();
+            $table->string('qsso')->nullable();
+            $table->string('revenue')->nullable();
+            $table->string('gap_revenue')->nullable();
             $table->timestamps();
         });
     }
