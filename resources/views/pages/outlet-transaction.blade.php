@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
-                        <table id="complex-header" class="display" style="width:100%">
+                        <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th rowspan="2">Outlet ID</th>
@@ -35,18 +35,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1232131</td>
-                                    <td>herul cell 09</td>
-                                    <td>1.000.000</td>
-                                    <td>500.000</td>
-                                    <td>100.000</td>
-                                    <td>90.000</td>
-                                    <td>90%</td>
-                                    <td>100.000</td>
-                                    <td>90.000</td>
-                                    <td>90%</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -56,3 +44,30 @@
     </div>
 </div>
 @endsection
+@push('addon-script')
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.data-table').DataTable({
+        processing  : true,
+        serverSide  : true,
+        
+        ajax: "{{ route('outlet-data.outletTransaction') }}",
+        columns: [
+            {data: 'outlet_id', name: 'outlet_id'},
+            {data: 'outlet_name', name: 'outlet_name'},
+            {data: 'balance', name: 'balance'},
+            {data: 'mobo_transaction', name: 'mobo_transaction'},
+            {data: 'sultan_target', name: 'sultan_target'},
+            {data: 'sultan_ach', name: 'sultan_ach'},
+            {data: 'sultan_percen', name: 'sultan_percen'},
+            {data: 'jawara_target', name: 'jawara_target'},
+            {data: 'jawara_ach', name: 'jawara_ach'},
+            {data: 'jawara_percen', name: 'jawara_percen'},
+        ],
+        order: [ 0 , 'desc'],
+    });
+    
+  });
+</script>
+@endpush

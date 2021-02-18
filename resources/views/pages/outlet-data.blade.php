@@ -15,28 +15,17 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
-                        <table id="complex-header" class="display" style="width:100%">
+                        <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Outlet ID</th>
                                     <th>Outlet Name</th>
                                     <th>Micro Cluster</th>
-                                    <th>Site Area</th>
                                     <th>Category</th>
-                                    <th>Longitude</th>
-                                    <th>Latitude</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1232131</td>
-                                    <td>herul cell 09</td>
-                                    <td>Makassar Kota 2</td>
-                                    <td>Paccerakkang_TB</td>
-                                    <td>Outlet Retail</td>
-                                    <td>-5.212131</td>
-                                    <td>119.91231</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -46,3 +35,25 @@
     </div>
 </div>
 @endsection
+@push('addon-script')
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.data-table').DataTable({
+        processing  : true,
+        serverSide  : true,
+        
+        ajax: "{{ route('outlet-data.index') }}",
+        columns: [
+            {data: 'outlet_id', name: 'outlet_id'},
+            {data: 'outlet_name', name: 'outlet_name'},
+            {data: 'micro_cluster', name: 'micro_cluster'},
+            {data: 'category', name: 'category'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
+        ],
+        order: [ 0 , 'desc'],
+    });
+    
+  });
+</script>
+@endpush

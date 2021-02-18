@@ -43,8 +43,8 @@
   $(function () {
     
     var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
+        processing  : true,
+        serverSide  : true,
         ajax: "{{ route('site-data.siteTransaction') }}",
         columns: [
             {data: 'site_id', name: 'site_id'},
