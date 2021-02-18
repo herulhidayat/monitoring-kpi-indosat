@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
-                        <table id="complex-header" class="display" style="width:100%">
+                        <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Site ID</th>
@@ -29,16 +29,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Site ID</td>
-                                    <td>Site Name</td>
-                                    <td>URO</td>
-                                    <td>SSO</td>
-                                    <td>QURO</td>
-                                    <td>QSSO</td>
-                                    <td>Revenue</td>
-                                    <td>GAP Revenue</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -48,3 +38,27 @@
     </div>
 </div>
 @endsection
+@push('addon-script')
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('site-data.siteTransaction') }}",
+        columns: [
+            {data: 'site_id', name: 'site_id'},
+            {data: 'site_name', name: 'site_name'},
+            {data: 'uro', name: 'uro'},
+            {data: 'sso', name: 'sso'},
+            {data: 'quro', name: 'quro'},
+            {data: 'qsso', name: 'qsso'},
+            {data: 'revenue', name: 'revenue'},
+            {data: 'gap_revenue', name: 'gap_revenue'},
+        ],
+        order: [ 0 , 'desc'],
+    });
+    
+  });
+</script>
+@endpush

@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
-                        <table id="complex-header" class="display" style="width:100%">
+                        <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Site ID</th>
@@ -26,29 +26,10 @@
                                     <th>Outlet Surrounding</th>
                                     <th>ONO</th>
                                     <th>Total Outlet</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>28UPD001</td>
-                                    <td>Panakukang_indah_pl</td>
-                                    <td>Makassar Kota 2</td>
-                                    <td>Macro</td>
-                                    <td>Active</td>
-                                    <td>2</td>
-                                    <td>0</td>
-                                    <td>8</td>
-                                </tr>
-                                <tr>
-                                    <td>28UPD001</td>
-                                    <td>Bumisudiang_permai_upd_pl</td>
-                                    <td>Makassar Kota 2</td>
-                                    <td>Macro</td>
-                                    <td>Active</td>
-                                    <td>2</td>
-                                    <td>0</td>
-                                    <td>8</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -58,3 +39,28 @@
     </div>
 </div>
 @endsection
+@push('addon-script')
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.data-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('site-data.index') }}",
+        columns: [
+            {data: 'site_id', name: 'site_id'},
+            {data: 'site_name', name: 'site_name'},
+            {data: 'micro_cluster', name: 'micro_cluster'},
+            {data: 'coverage', name: 'coverage'},
+            {data: 'status', name: 'status'},
+            {data: 'outlet_surrounding', name: 'outlet_surrounding'},
+            {data: 'ono', name: 'ono'},
+            {data: 'total_outlet', name: 'total_outlet'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
+        ],
+        order: [ 0 , 'desc'],
+    });
+    
+  });
+</script>
+@endpush
