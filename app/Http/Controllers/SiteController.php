@@ -31,7 +31,7 @@ class SiteController extends Controller
                     ->addColumn('action', function(Site $site){
                         $user = Auth::user();
                         if($user->role == 'Admin'){
-                            $btn = '<a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/site-data/edit/'.$site->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> <a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/site-data/delete/'.$site->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
+                            $btn = '<a type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bd-example-modal-xl" style="height: 30px; width: 30px"'.$site->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> <a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/site-data/delete/'.$site->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         }else{
                             $btn = '<a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/site-data/edit/'.$site->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a>';
                         }   
