@@ -15,31 +15,23 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
-                        <table id="zero-conf" class="display" style="width:100%">
+                        <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th rowspan="2">ID CSO</th>
                                     <th rowspan="2">Nama CSO</th>
                                     <th rowspan="2">Micro Cluster</th>
-                                    <th colspan="3">Q-SSO</th>
+                                    <th colspan="5">Q-SSO</th>
                                 </tr>
                                 <tr>
                                     <th>Target</th>
                                     <th>Ach</th>
+                                    <th>Gap</th>
                                     <th>Percen</th>
                                     <th>Nilai</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>BYGMKS01</td>
-                                    <td>Sudirman</td>
-                                    <td>Makassar Kota 2</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>9</td>
-                                    <td>5</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -49,3 +41,27 @@
     </div>
 </div>
 @endsection
+@push('addon-script')
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.data-table').DataTable({
+        processing  : true,
+        serverSide  : true,
+        ajax: "{{ route('kpi-data.qsso') }}",
+        columns: [
+            {data: 'username', name: 'username'},
+            {data: 'nama', name: 'nama'},
+            {data: 'micro_cluster', name: 'micro_cluster'},
+            {data: 'qsso_target', name: 'qsso_target'},
+            {data: 'qsso_ach', name: 'qsso_ach'},
+            {data: 'qsso_gap', name: 'qsso_gap'},
+            {data: 'qsso_percen', name: 'qsso_percen'},
+            {data: 'qsso_nilai', name: 'qsso_nilai'},
+        ],
+        order: [ 0 , 'desc'],
+    });
+    
+  });
+</script>
+@endpush

@@ -15,31 +15,23 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
-                        <table id="complex-header" class="dispaly" style="width:100%">
+                        <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th rowspan="2">ID CSO</th>
                                     <th rowspan="2">Nama CSO</th>
                                     <th rowspan="2">Micro Cluster</th>
-                                    <th colspan="3">OMB</th>
+                                    <th colspan="5">OMB</th>
                                 </tr>
                                 <tr>
                                     <th>Target</th>
                                     <th>Ach</th>
+                                    <th>Gap</th>
                                     <th>Percen</th>
                                     <th>Nilai</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>BYGMKS01</td>
-                                    <td>Sudirman</td>
-                                    <td>Makassar Kota 2</td>
-                                    <td>10</td>
-                                    <td>10</td>
-                                    <td>9</td>
-                                    <td>5</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -49,3 +41,27 @@
     </div>
 </div>
 @endsection
+@push('addon-script')
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.data-table').DataTable({
+        processing  : true,
+        serverSide  : true,
+        ajax: "{{ route('kpi-data.omb') }}",
+        columns: [
+            {data: 'username', name: 'username'},
+            {data: 'nama', name: 'nama'},
+            {data: 'micro_cluster', name: 'micro_cluster'},
+            {data: 'omb_target', name: 'omb_target'},
+            {data: 'omb_ach', name: 'omb_ach'},
+            {data: 'omb_gap', name: 'omb_gap'},
+            {data: 'omb_percen', name: 'omb_percen'},
+            {data: 'omb_nilai', name: 'omb_nilai'},
+        ],
+        order: [ 0 , 'desc'],
+    });
+    
+  });
+</script>
+@endpush

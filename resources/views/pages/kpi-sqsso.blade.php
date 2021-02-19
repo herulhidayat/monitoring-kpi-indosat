@@ -18,20 +18,17 @@
                         <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID CSO</th>
-                                    <th>Nama CSO</th>
-                                    <th>Micro Cluster</th>
-                                    <th>Not Order</th>
-                                    <th>MSA</th>
-                                    <th>OMB</th>
-                                    <th>QSSO</th>
-                                    <th>QURO</th>
-                                    <th>Serious Customer</th>
-                                    <th>SSO HVC</th>
-                                    <th>Serious QSSO</th>
-                                    <th>Site Serious Customer</th>
-                                    <th>Total</th>
-                                    <th>Action</th>
+                                    <th rowspan="2">ID CSO</th>
+                                    <th rowspan="2">Nama CSO</th>
+                                    <th rowspan="2">Micro Cluster</th>
+                                    <th colspan="5">Serious QSSO</th>
+                                </tr>
+                                <tr>
+                                    <th>Target</th>
+                                    <th>Ach</th>
+                                    <th>Gap</th>
+                                    <th>Percen</th>
+                                    <th>Nilai</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,23 +48,16 @@
     var table = $('.data-table').DataTable({
         processing  : true,
         serverSide  : true,
-        scrollX     : true,
-        ajax: "{{ route('kpi-data.index') }}",
+        ajax: "{{ route('kpi-data.sqsso') }}",
         columns: [
             {data: 'username', name: 'username'},
             {data: 'nama', name: 'nama'},
             {data: 'micro_cluster', name: 'micro_cluster'},
-            {data: 'not_order', name: 'not_order'},
-            {data: 'msa_nilai', name: 'msa_nilai'},
-            {data: 'omb_nilai', name: 'omb_nilai'},
-            {data: 'qsso_nilai', name: 'qsso_nilai'},
-            {data: 'quro_nilai', name: 'quro_nilai'},
-            {data: 'sc_nilai', name: 'sc_nilai'},
-            {data: 'ssohvc_nilai', name: 'ssohvc_nilai'},
+            {data: 'sqsso_target', name: 'sqsso_target'},
+            {data: 'sqsso_ach', name: 'sqsso_ach'},
+            {data: 'sqsso_gap', name: 'sqsso_gap'},
+            {data: 'sqsso_percen', name: 'sqsso_percen'},
             {data: 'sqsso_nilai', name: 'sqsso_nilai'},
-            {data: 'ssc_nilai', name: 'ssc_nilai'},
-            {data: 'score', name: 'score'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
         ],
         order: [ 0 , 'desc'],
     });

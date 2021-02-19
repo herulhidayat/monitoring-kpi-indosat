@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 // Kpi Routes
-Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::resource('kpi-data', KpiController::class);
     Route::get('/kpi-msa', [KpiController::class, 'msa'])->name('kpi-data.msa');
     Route::get('/kpi-omb', [KpiController::class, 'omb'])->name('kpi-data.omb');
