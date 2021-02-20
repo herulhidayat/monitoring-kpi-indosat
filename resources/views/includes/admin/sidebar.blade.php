@@ -8,6 +8,20 @@
             <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
                 <a href="/"><i class="material-icons-outlined">dashboard</i>Dashboard</a>
             </li>
+            <li class="{{ (request()->routeIs('')) || (request()->routeIs('')) ? 'active-page' : '' }}">
+                <a><i class="material-icons-outlined">assignment</i>Rencana<i class="material-icons has-sub-menu">add</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Buat Rencana</a>
+                    </li>
+                    <li>
+                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Aktif</a>
+                    </li>
+                    <li>
+                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Selesai</a>
+                    </li>
+                </ul>
+            </li>
             <li class="{{ (request()->routeIs('site-data.*')) || (request()->routeIs('site-transaction.*')) ? 'active-page' : '' }}">
                 <a><i class="material-icons-outlined">settings_input_antenna</i>Site<i class="material-icons has-sub-menu">add</i></a>
                 <ul class="sub-menu">
@@ -59,23 +73,6 @@
                     </li>
                     <li>
                         <a href="/kpi-ssc" class="{{ (request()->routeIs('kpi-data.ssc')) ? 'active' : '' }}">Site Serious Customer</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
-                <a href="mailbox.html"><i class="material-icons-outlined">book</i>Kamus</a>
-            </li>
-            <li class="{{ (request()->routeIs('')) || (request()->routeIs('')) ? 'active-page' : '' }}">
-                <a><i class="material-icons-outlined">assignment</i>Rencana<i class="material-icons has-sub-menu">add</i></a>
-                <ul class="sub-menu">
-                    <li>
-                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Buat Rencana</a>
-                    </li>
-                    <li>
-                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Aktif</a>
-                    </li>
-                    <li>
-                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Selesai</a>
                     </li>
                 </ul>
             </li>
