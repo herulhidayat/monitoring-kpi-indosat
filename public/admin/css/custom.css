@@ -9,5 +9,21 @@
          url('../font/ooredoo-heavy-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+.dashboard-stat p{
+    font-size: 19px;
+    line-height: 32px;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.score p{
+    color: #ffc000;
+}
+
+.dashboard-stat span {
+    font-size: 13px;
+    margin-top: 3px;
 }
