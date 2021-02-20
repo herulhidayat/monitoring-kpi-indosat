@@ -10,9 +10,8 @@
                     <span>Nancy Moore</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Calendar<span class="badge badge-pill badge-info float-right">2</span></a>
-                    <a class="dropdown-item" href="#">Settings &amp Privacy</a>
-                    <a class="dropdown-item" href="#">Switch Account</a>
+                    <a class="dropdown-item" href="#">Ubah Profil</a>
+                    <a class="dropdown-item" href="#">Ubah Password</a>
                     <div class="dropdown-divider"></div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

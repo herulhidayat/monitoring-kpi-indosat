@@ -1,16 +1,51 @@
 @extends('layouts.master-admin')
 @section('content')
+@foreach($data_dashboard as $data)
+<?php 
+$score      = $data->score;
+$not_order  = $data->not_order;
+$msa_target = $data->msa_target;
+$msa_ach    = $data->msa_ach;
+$msa_gap = $data->msa_gap;
+$msa_nilai  = $data->msa_nilai;
+$omb_target = $data->omb_target;
+$omb_ach    = $data->omb_ach;
+$omb_nilai = $data->omb_nilai;
+$omb_gap    = $data->omb_gap;
+$qsso_target = $data->qsso_target;
+$qsso_ach    = $data->qsso_ach;
+$qsso_nilai = $data->qsso_nilai;
+$qsso_gap    = $data->qsso_gap;
+$quro_target = $data->quro_target;
+$quro_ach    = $data->quro_ach;
+$quro_nilai = $data->quro_nilai;
+$quro_gap    = $data->quro_gap;
+$sc_target = $data->sc_target;
+$sc_ach    = $data->sc_ach;
+$sc_nilai = $data->sc_nilai;
+$sc_gap    = $data->sc_gap;
+$ssohvc_target = $data->ssohvc_target;
+$ssohvc_ach    = $data->ssohvc_ach;
+$ssohvc_nilai = $data->ssohvc_nilai;
+$ssohvc_gap    = $data->ssohvc_gap;
+$sqsso_target = $data->sqsso_target;
+$sqsso_ach    = $data->sqsso_ach;
+$sqsso_nilai = $data->sqsso_nilai;
+$sqsso_gap    = $data->sqsso_gap;
+$ssc_target = $data->ssc_target;
+$ssc_ach    = $data->ssc_ach;
+$ssc_nilai = $data->ssc_nilai;
+$ssc_gap    = $data->ssc_gap;
+?>
+@endforeach
 <div class="page-content">
     <div class="page-info">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Apps</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                <li class="breadcrumb-item"><a href="#">Monitoring</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Indosat</li>
             </ol>
         </nav>
-        <div class="page-options">
-            <a href="#" class="btn btn-primary">Upgrade</a>
-        </div>
     </div>
     <div class="main-wrapper">
         <div class="row">
@@ -31,7 +66,7 @@
                     </div>
                     <div class="card-body">
                         <div class="dashboard-stat">
-                            <p>56%</p>
+                            <p>{{number_format($score*100,2)."%"}}</p>
                             <span>score</span>
                         </div>
                     </div>
@@ -42,7 +77,7 @@
                     </div>
                     <div class="card-body">
                         <div class="dashboard-stat">
-                            <p>10</p>
+                            <p>{{$not_order}}</p>
                             <span>outlet</span>
                         </div>
                     </div>
@@ -57,25 +92,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($msa_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($msa_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($msa_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($msa_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>
@@ -90,25 +125,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($omb_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($omb_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($omb_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($omb_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>
@@ -123,25 +158,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($qsso_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($qsso_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($qsso_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($qsso_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>
@@ -156,25 +191,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($quro_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($quro_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($quro_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($quro_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>
@@ -191,25 +226,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($sc_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($sc_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($sc_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($sc_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>
@@ -224,25 +259,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($ssohvc_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($ssohvc_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($ssohvc_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($ssohvc_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>
@@ -257,25 +292,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($sqsso_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($sqsso_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($sqsso_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($sqsso_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>
@@ -290,25 +325,25 @@
                         <div class="row">
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($ssc_target),0,"",".")}}</p>
                                     <span>Target</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($ssc_ach),0,"",".")}}</p>
                                     <span>Achievement</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat">
-                                    <p>10</p>
+                                    <p>{{number_format(round($ssc_gap),0,"",".")}}</p>
                                     <span>GAP</span>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="dashboard-stat score">
-                                    <p>10%</p>
+                                    <p>{{number_format($ssc_nilai*100,2)."%"}}</p>
                                     <span>Score</span>
                                 </div>
                             </div>

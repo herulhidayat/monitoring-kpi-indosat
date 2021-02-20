@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\KpiController;
 use App\Http\Controllers\OutletController;
@@ -22,12 +23,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('pages.dashboard');
-})->name('dashboard');
-
+// Dashboard
+Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,User'])->group(function () {
+    Route::resource('dashboard', DashboardController::class);
+});
 // Kpi Routes
-Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
     Route::resource('kpi-data', KpiController::class);
     Route::delete('/kpi-data/delete/{id}', [KpiController::class, 'destroy'])->name('kpi-data.delete');
     Route::get('/kpi-msa', [KpiController::class, 'msa'])->name('kpi-data.msa');
@@ -41,7 +42,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
 });
 
 // Site Routes
-Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
     Route::resource('site-data', SiteController::class);
     Route::put('/site-data/edit/{id}', [SiteController::class, 'update'])->name('site-data.edit');
     Route::delete('/site-data/delete/{id}', [SiteController::class, 'destroy'])->name('site-data.delete');
@@ -49,7 +50,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
 });
 
 // Outlet Routes
-Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
     Route::resource('outlet-data', OutletController::class);
     Route::put('/outlet-data/edit/{id}', [OutletController::class, 'update'])->name('outlet-data.edit');
     Route::get('/outlet-transaction', [OutletController::class, 'OutletTransaction'])->name('outlet-data.outletTransaction');
@@ -57,7 +58,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
 });
 
 // Import Routes
-Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,User,SPV'])->group(function () {
     Route::resource('import', ImportController::class);
     Route::post('import-kpi-outlet', [ImportController::class, 'importKpiOutlet'])->name('import-kpi-outlet');
     Route::post('import-site', [ImportController::class, 'importSite'])->name('import-site');

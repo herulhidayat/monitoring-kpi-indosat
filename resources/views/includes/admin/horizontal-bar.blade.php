@@ -7,7 +7,7 @@
                 <div class="horizontal-bar-menu">
                     <ul>
                         <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
-                            <a href="/"><i class="material-icons-outlined">dashboard</i> Dashboard</a>
+                            <a href="{{ route('dashboard.index') }}"><i class="material-icons-outlined">dashboard</i> Dashboard</a>
                         </li>
                         <li class="{{ (request()->routeIs('')) || (request()->routeIs('')) ? 'active-page' : '' }}">
                             <a href=""><i class="material-icons-outlined">assignment</i> Rencana<i class="material-icons">keyboard_arrow_down</i></a>

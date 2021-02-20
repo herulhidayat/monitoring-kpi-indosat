@@ -4,8 +4,8 @@
     <div class="page-info">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Extended</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data Site</li>
+                <li class="breadcrumb-item"><a href="#">Site</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Transaksi Site</li>
             </ol>
         </nav>
     </div>
@@ -14,7 +14,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Site</h5>
+                        <h5 class="card-title">Transaksi Site</h5>
                         <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
