@@ -4,13 +4,10 @@
     <div class="page-info">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Apps</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                <li class="breadcrumb-item"><a href="#">Import Data</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Excel</li>
             </ol>
         </nav>
-        <div class="page-options">
-            <a href="#" class="btn btn-primary">Upgrade</a>
-        </div>
     </div>
     <div class="main-wrapper">
         <div class="row">
@@ -18,7 +15,7 @@
                 <div class="card" id="blockui-card-1">
                     <div class="card-body">
                         <h5 class="card-title">Import Data KPI dan Outlet</h5>
-                        <p>Silahkan klik "Browse.." di bawah kemudian cari file KPI yang telah ada, setelah itu kilik tombol "Submit"</p>
+                        <p>Silahkan klik "Browse.." di bawah kemudian cari file KPI dan Outlet yang telah ada, setelah itu klik tombol "Submit"</p>
                         <form action="{{ route('import-kpi-outlet') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="input-group">
@@ -33,7 +30,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Import Data Site</h5>
-                        <p>Silahkan klik "Browse.." di bawah kemudian cari file KPI yang telah ada, setelah itu kilik tombol "Submit"</p>
+                        <p>Silahkan klik "Browse.." di bawah kemudian cari file KPI yang telah ada, setelah itu klik tombol "Submit"</p>
                         <form action="{{ route('import-site') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="input-group">

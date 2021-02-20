@@ -1,3 +1,6 @@
+<?php 
+    $user = $user = Auth::user();
+?>
 <div class="horizontal-bar">
     <div class="logo-box"><a href="#" class="logo-text">monitoring</a></div>
     <a href="#" class="hide-horizontal-bar"><i class="material-icons">close</i></a>
@@ -6,9 +9,11 @@
             <div class="col">
                 <div class="horizontal-bar-menu">
                     <ul>
-                        <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
+                        @if($user->role !== 'Admin' && $user->role !== 'SPV')
+                        <li class="{{ (request()->routeIs('dashboard.*')) ? 'active-page' : '' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="material-icons-outlined">dashboard</i> Dashboard</a>
                         </li>
+                        @endif
                         <li class="{{ (request()->routeIs('')) || (request()->routeIs('')) ? 'active-page' : '' }}">
                             <a href=""><i class="material-icons-outlined">assignment</i> Rencana<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul class="sub-menu">
@@ -77,9 +82,11 @@
                                 </li>
                             </ul>
                         </li>
+                        @if($user->role == 'Admin' || $user->role == 'SPV')
                         <li class="{{ (request()->routeIs('import.*')) ? 'active-page' : '' }}">
                             <a href="{{ route('import.index') }}"><i class="material-icons-outlined">cloud_upload</i> Import Data</a>
                         </li>
+                        @endif
                         <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
                             <a href="profile.html"><i class="material-icons-outlined">account_circle</i> User</a>
                         </li>

@@ -58,7 +58,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
 });
 
 // Import Routes
-Route::middleware(['auth', 'checkRole:Admin,User,SPV'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::resource('import', ImportController::class);
     Route::post('import-kpi-outlet', [ImportController::class, 'importKpiOutlet'])->name('import-kpi-outlet');
     Route::post('import-site', [ImportController::class, 'importSite'])->name('import-site');
