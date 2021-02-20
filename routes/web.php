@@ -43,7 +43,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
 // Site Routes
 Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::resource('site-data', SiteController::class);
-    Route::get('/site-data/edit/{id}', [SiteController::class, 'edit'])->name('site-data.edit');
+    Route::put('/site-data/edit/{id}', [SiteController::class, 'update'])->name('site-data.edit');
     Route::delete('/site-data/delete/{id}', [SiteController::class, 'destroy'])->name('site-data.delete');
     Route::get('/site-transaction', [SiteController::class, 'siteTransaction'])->name('site-data.siteTransaction');
 });
@@ -51,6 +51,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
 // Outlet Routes
 Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::resource('outlet-data', OutletController::class);
+    Route::put('/outlet-data/edit/{id}', [OutletController::class, 'update'])->name('outlet-data.edit');
     Route::get('/outlet-transaction', [OutletController::class, 'OutletTransaction'])->name('outlet-data.outletTransaction');
     Route::delete('/outlet-data/delete/{id}', [OutletController::class, 'destroy'])->name('outlet-data.delete');
 });

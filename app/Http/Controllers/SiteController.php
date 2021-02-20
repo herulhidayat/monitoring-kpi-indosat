@@ -7,6 +7,7 @@ use App\Models\Site;
 use DataTables;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class SiteController extends Controller
 {
@@ -32,7 +33,7 @@ class SiteController extends Controller
                         $user = Auth::user();
                         if($user->role == 'Admin'){
                             $btn = '
-                                    <a type="button" class="btn btn-warning btn-xs" href="javascript:void(0);" data-toggle="modal" data-target="#editModal'.$site->id.'" style="height: 30px; width: 30px"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> 
+                                    <a type="button" class="edit_site btn btn-warning btn-xs" href="javascript:void(0);" data-id="'.$site->id.'" data-surrounding="'.$site->outlet_surrounding.'" data-ono="'.$site->ono.'" data-total="'.$site->total_outlet.'" data-uro="'.$site->uro.'" data-sso="'.$site->sso.'" data-quro="'.$site->quro.'" data-qsso="'.$site->qsso.'" data-revenue="'.$site->revenue.'" data-gap="'.$site->gap_revenue.'" style="height: 30px; width: 30px"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> 
                                     <a type="button" class="delete_site btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$site->id.'" data-url="/site-data/delete/'.$site->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         }else{
                             $btn = '<a type="button" class="delete_site btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$site->id.'" data-url="/site-data/delete/'.$site->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
@@ -125,7 +126,18 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Site::where('id', $id);
+        $data->update([
+            'gap_revenue'   => $request->gap_revenue,
+            'revenue'       => $request->revenue,
+            'qsso'          => $request->qsso,
+            'quro'          => $request->quro,
+            'sso'           => $request->sso,
+            'uro'           => $request->uro,
+            'total_outlet'  => $request->total_outlet,
+            'ono'           => $request->ono,
+            'outlet_surrounding'    => $request->outlet_surrounding,
+        ]);
     }
 
     /**

@@ -7,10 +7,10 @@
                 <div class="horizontal-bar-menu">
                     <ul>
                         <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
-                            <a href="/"><i class="material-icons-outlined">dashboard</i>Dashboard</a>
+                            <a href="/"><i class="material-icons-outlined">dashboard</i> Dashboard</a>
                         </li>
                         <li class="{{ (request()->routeIs('')) || (request()->routeIs('')) ? 'active-page' : '' }}">
-                            <a href=""><i class="material-icons-outlined">assignment</i>Rencana<i class="material-icons">keyboard_arrow_down</i></a>
+                            <a href=""><i class="material-icons-outlined">assignment</i> Rencana<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Buat Rencana</a>
@@ -24,7 +24,7 @@
                             </ul>
                         </li>
                         <li class="{{ (request()->routeIs('site-data.*')) || (request()->routeIs('site-transaction.*')) ? 'active-page' : '' }}">
-                            <a href=""><i class="material-icons-outlined">settings_input_antenna</i>Site<i class="material-icons">keyboard_arrow_down</i></a>
+                            <a href=""><i class="material-icons-outlined">settings_input_antenna</i> Site<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('site-data.index') }}" class="{{ (request()->routeIs('site-data.index')) ? 'active' : '' }}">Data Site</a>
@@ -35,7 +35,7 @@
                             </ul>
                         </li>
                         <li class="{{ (request()->routeIs('outlet-data.*')) ? 'active-page' : '' }}">
-                            <a href=""><i class="material-icons-outlined">store</i>Outlet<i class="material-icons">keyboard_arrow_down</i></a>
+                            <a href=""><i class="material-icons-outlined">store</i> Outlet<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('outlet-data.index') }}" class="{{ (request()->routeIs('outlet-data.index')) ? 'active' : '' }}">Data Outlet</a>
@@ -46,7 +46,7 @@
                             </ul>
                         </li>
                         <li class="{{ (request()->routeIs('kpi-data.*')) ? 'active-page' : '' }}">
-                            <a href=""><i class="material-icons-outlined">show_chart</i>KPI CSO<i class="material-icons">keyboard_arrow_down</i></a>
+                            <a href=""><i class="material-icons-outlined">show_chart</i> KPI CSO<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul class="sub-menu">
                                 <li>
                                     <a href="{{ route('kpi-data.index') }}" class="{{ (request()->routeIs('kpi-data.index')) ? 'active' : '' }}">Score</a>
@@ -78,10 +78,10 @@
                             </ul>
                         </li>
                         <li class="{{ (request()->routeIs('import.*')) ? 'active-page' : '' }}">
-                            <a href="{{ route('import.index') }}"><i class="material-icons-outlined">cloud_upload</i>Import Data</a>
+                            <a href="{{ route('import.index') }}"><i class="material-icons-outlined">cloud_upload</i> Import Data</a>
                         </li>
                         <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
-                            <a href="profile.html"><i class="material-icons-outlined">account_circle</i>User</a>
+                            <a href="profile.html"><i class="material-icons-outlined">account_circle</i> User</a>
                         </li>
                     </ul>
                 </div>

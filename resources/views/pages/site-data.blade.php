@@ -40,8 +40,7 @@
     </div>
 </div>
 <!-- Modal Edit -->
-@foreach($data_site as $data)
-<div class="modal fade" id="editModal{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,62 +50,69 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <meta name="csrf-token-edit" content="{{ csrf_token() }}">
+                    <input type="hidden" readonly class="form-control" name="number" id="id_site">
                     <div class="form-group">
                         <label>Outlet Surrounding</label>
-                        <input type="text" class="form-control" id="outlet_surrounding{{$data->id}}" value="{{$data->outlet_surrounding}}">
+                        <input type="text" class="form-control" name="number" id="outlet_surrounding">
                     </div>
                     <div class="form-group">
                         <label>ONO</label>
-                        <input type="text" class="form-control" id="ono{{$data->id}}" value="{{$data->ono}}">
+                        <input type="text" class="form-control" name="number" id="ono">
                     </div>
                     <div class="form-group">
                         <label>Total Outlet</label>
-                        <input type="text" class="form-control" id="total_outlet{{$data->id}}" value="{{$data->total_outlet}}">
+                        <input type="text" class="form-control" name="number" id="total_outlet">
                     </div>
                     <div class="form-group">
                         <label>URO</label>
-                        <input type="text" class="form-control" id="uro{{$data->id}}" value="{{$data->uro}}">
+                        <input type="text" class="form-control" name="number" id="uro">
                     </div>
                     <div class="form-group">
                         <label>SSO</label>
-                        <input type="text" class="form-control" id="sso{{$data->id}}" value="{{$data->sso}}">
+                        <input type="text" class="form-control" name="number" id="sso">
                     </div>
                     <div class="form-group">
                         <label>QURO</label>
-                        <input type="text" class="form-control" id="quro{{$data->id}}" value="{{$data->quro}}">
+                        <input type="text" class="form-control" name="number" id="quro">
                     </div>
                     <div class="form-group">
                         <label>QSSO</label>
-                        <input type="text" class="form-control" id="qsso{{$data->id}}" value="{{$data->qsso}}">
+                        <input type="text" class="form-control" name="number" id="qsso">
                     </div>
                     <div class="form-group">
                         <label>Revenue</label>
-                        <input type="text" class="form-control" id="revenue{{$data->id}}" value="{{$data->revenue}}">
+                        <input type="text" class="form-control" name="number" id="revenue">
                     </div>
                     <div class="form-group">
                         <label>GAP Revenue</label>
-                        <input type="text" class="form-control" id="gap_revenue{{$data->id}}" value="{{$data->gap_revenue}}">
+                        <input type="text" class="form-control" name="number" id="gap_revenue">
                     </div>
-                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary editdata">Ubah</button>
             </div>
         </div>
     </div>
 </div>
-@endforeach
 @endsection
 @push('addon-script')
 <script type="text/javascript">
 $(document).ready(function() {
+    $(function() { 
+        $("input[name='number']").on('input', function(e) { 
+            $(this).val($(this).val().replace(/[^0-9 & . & -]/g, '')); 
+        }); 
+    });
+
     $(function () {
         var table = $('.data-table').DataTable({
+            initComplete: function (settings, json) {  
+                $(".data-table").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
+            },
             processing  : true,
             serverSide  : true,
-            scrollX     : true,
             ajax: "{{ route('site-data.index') }}",
             columns: [
                 {data: 'site_id', name: 'site_id'},
@@ -160,6 +166,64 @@ $(document).ready(function() {
                 });
             }
             })
+    });
+
+    $('.data-table').on('click','.edit_site',function(){
+                        var id=$(this).data('id');
+                        var outlet_surrounding=$(this).data('surrounding');
+                        var ono=$(this).data('ono');
+                        var total_outlet=$(this).data('total');
+                        var uro=$(this).data('uro');
+                        var sso=$(this).data('sso');
+                        var quro=$(this).data('quro');
+                        var qsso=$(this).data('qsso');
+                        var revenue=$(this).data('revenue');
+                        var gap_revenue=$(this).data('gap');
+            $('#editModal').modal('show');
+                        $('#id_site').val(id);
+                        $('#outlet_surrounding').val(outlet_surrounding);
+                        $('#ono').val(ono);
+                        $('#total_outlet').val(total_outlet);
+                        $('#uro').val(uro);
+                        $('#sso').val(sso);
+                        $('#quro').val(quro);
+                        $('#qsso').val(qsso);
+                        $('#revenue').val(revenue);
+                        $('#gap_revenue').val(gap_revenue);
+      });
+
+    $('.editdata').click(function(e){
+        e.preventDefault();
+        var id      = $('#id_site').val();
+        var outlet_surrounding  = $('#outlet_surrounding').val();
+        var ono     = $('#ono').val();
+        var total_outlet    = $('#total_outlet').val();
+        var uro     = $('#uro').val();
+        var sso     = $('#sso').val();
+        var quro    = $('#quro').val();
+        var qsso    = $('#qsso').val();
+        var revenue = $('#revenue').val();
+        var gap_revenue     = $('#gap_revenue').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token-edit"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/site-data/edit/'+id,
+            data:{id:id, outlet_surrounding:outlet_surrounding, ono:ono, total_outlet:total_outlet, uro:uro, sso:sso, quro:quro, qsso:qsso, revenue:revenue, gap_revenue:gap_revenue},
+            method:'PUT',
+            success:function(data){
+                Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: 'Data Site Berhasil Diubah!',
+                });
+                setTimeout(function(){
+                location.reload();
+                }, 1000);
+            }
+        });
     });
 });
 </script>

@@ -55,9 +55,11 @@
 $(document).ready(function() {
     $(function () { 
         var table = $('.data-table').DataTable({
+            initComplete: function (settings, json) {  
+                $(".data-table").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
+            },
             processing  : true,
             serverSide  : true,
-            scrollX     : true,
             ajax: "{{ route('kpi-data.index') }}",
             columns: [
                 {data: 'username', name: 'username'},

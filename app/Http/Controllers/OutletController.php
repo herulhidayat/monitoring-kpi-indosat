@@ -19,7 +19,7 @@ class OutletController extends Controller
     {
         $user = Auth::user();
         if($user->role == 'Admin'){
-            $data = Outlet::select('*');
+            $data = Outlet::select('*')->get();
         }else{
             $data = Outlet::where('username', $user->username)->get();
         }
@@ -32,7 +32,7 @@ class OutletController extends Controller
                         $user = Auth::user();
                         if($user->role == 'Admin'){
                             $btn = '
-                                    <a type="button" class="btn btn-warning btn-xs" href="javascript:void(0);" data-toggle="modal" data-target="#editModal'.$outlet->id.'" style="height: 30px; width: 30px"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> 
+                                    <a type="button" class="edit_outlet btn btn-warning btn-xs" data-id="'.$outlet->id.'" data-balance="'.$outlet->balance.'" data-mobo="'.$outlet->mobo_transaction.'" data-starget="'.$outlet->sultan_target.'" data-sach="'.$outlet->sultan_ach.'" data-spercen="'.$outlet->sultan_percen.'" data-jtarget="'.$outlet->jawara_target.'" data-jach="'.$outlet->jawara_ach.'" data-jpercen="'.$outlet->jawara_percen.'" href="javascript:void(0);" style="height: 30px; width: 30px"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> 
                                     <a type="button" class="delete_outlet btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$outlet->id.'" data-url="/outlet-data/delete/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         }else{
                             $btn = '<a type="button" class="delete_outlet btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$outlet->id.'" data-url="/outlet-data/delete/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
@@ -44,7 +44,9 @@ class OutletController extends Controller
         }
 
 
-        return view('pages.outlet-data');
+        return view('pages.outlet-data', [
+            'data_outlet'         => $data,
+            ]);
     }
 
     public function outletTransaction(Request $request)
@@ -141,7 +143,17 @@ class OutletController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Outlet::where('id', $id);
+        $data->update([
+            'balance'       => $request->balance,
+            'mobo_transaction'  => $request->mobo_transaction,
+            'sultan_target' => $request->sultan_target,
+            'sultan_ach'    => $request->sultan_ach,
+            'sultan_percen' => $request->sultan_percen,
+            'jawara_target' => $request->jawara_target,
+            'jawara_ach'    => $request->jawara_ach,
+            'jawara_percen' => $request->jawara_percen,
+        ]);
     }
 
     /**
