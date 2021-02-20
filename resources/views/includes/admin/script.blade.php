@@ -16,3 +16,4 @@
 <script src="{{asset('admin/plugins/DataTables/datatables.min.js')}}"></script>
 <script src="{{asset('admin/js/pages/datatables.js')}}"></script>
 <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
+<script src="https://cdn.datatables.net/fixedcolumns/3.3.2/js/dataTables.fixedColumns.min.js"></script>
