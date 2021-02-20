@@ -23,6 +23,11 @@
     color: #ffc000;
 }
 
+.navbar-right .navbar-nav{
+    margin-left: auto;
+    margin-right: 28px;
+}
+
 .dashboard-stat span {
     font-size: 13px;
     margin-top: 3px;

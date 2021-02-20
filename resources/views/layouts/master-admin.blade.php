@@ -23,9 +23,9 @@
             </div>
         </div>
         <div class="connect-container align-content-stretch d-flex flex-wrap">
-            @include('includes.admin.sidebar')
             <div class="page-container">
                 @include('includes.admin.navbar')
+                @include('includes.admin.horizontal-bar')
                 @yield('content')
                 @include('includes.admin.footer')
             </div>
