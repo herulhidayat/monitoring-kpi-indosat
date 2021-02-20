@@ -16,6 +16,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Data Site</h5>
                         <table class="table table-bordered data-table" style="width:100%">
+                            <meta name="csrf-token-delete" content="{{ csrf_token() }}">
                             <thead>
                                 <tr>
                                     <th>Outlet ID</th>
@@ -40,22 +41,6 @@
                                     </div>
                                     <div class="modal-body">
                                         <form>
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">Outlet ID</label>
-                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">Outlet Name</label>
-                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">Micro Cluster</label>
-                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">PJP</label>
-                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                                            </div>
                                             <div class="form-group">
                                                 <label for="formGroupExampleInput">Saldo</label>
                                                 <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
@@ -116,8 +101,8 @@
 @endsection
 @push('addon-script')
 <script type="text/javascript">
+$(document).ready(function() {
   $(function () {
-    
     var table = $('.data-table').DataTable({
         processing  : true,
         serverSide  : true,
@@ -132,7 +117,46 @@
         ],
         order: [ 0 , 'desc'],
     });
-    
   });
+
+  $('.data-table').on('click','.delete_outlet',function(e){
+        e.preventDefault();
+        var id = $(this).data('id');
+        var url = $(this).data('url');
+        console.log(url);
+        Swal.fire({
+            title: 'Apa Anda Yakin?',
+            text: "Anda Tidak Dapat Membatalkan Operasi Ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token-delete"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url:url,
+                    data:{id:id},
+                    method:'DELETE',
+                    success:function(data){
+                    Swal.fire(
+                        'Dihapus!',
+                        'Data Site Berhasil Dihapus.',
+                        'success'
+                    )
+                    setTimeout(function(){
+                    location.reload();
+                    }, 1000);
+                    }
+                });
+            }
+            })
+    });
+});
 </script>
 @endpush

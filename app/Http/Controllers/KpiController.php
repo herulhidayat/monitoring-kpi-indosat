@@ -31,9 +31,9 @@ class KpiController extends Controller
                     ->addColumn('action', function(Kpi $kpi){
                         $user = Auth::user();
                         if($user->role == 'Admin'){
-                            $btn = '<a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/kpi-data/edit/'.$kpi->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> <a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/kpi-data/delete/'.$kpi->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
+                            $btn = '<a type="button" class="delete_kpi btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$kpi->id.'" data-url="/kpi-data/delete/'.$kpi->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         }else{
-                            $btn = '<a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/kpi-data/edit/'.$kpi->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a>';
+                            $btn = '';
                         }   
                         return $btn;
                     })
@@ -398,6 +398,6 @@ class KpiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Kpi::find($id)->delete();
     }
 }

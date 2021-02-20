@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // Kpi Routes
 Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::resource('kpi-data', KpiController::class);
+    Route::delete('/kpi-data/delete/{id}', [KpiController::class, 'destroy'])->name('kpi-data.delete');
     Route::get('/kpi-msa', [KpiController::class, 'msa'])->name('kpi-data.msa');
     Route::get('/kpi-omb', [KpiController::class, 'omb'])->name('kpi-data.omb');
     Route::get('/kpi-qsso', [KpiController::class, 'qsso'])->name('kpi-data.qsso');
@@ -43,7 +44,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
 Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::resource('site-data', SiteController::class);
     Route::get('/site-data/edit/{id}', [SiteController::class, 'edit'])->name('site-data.edit');
-    Route::post('/site-data/delete/{id}', [SiteController::class, 'delete'])->name('site-data.delete');
+    Route::delete('/site-data/delete/{id}', [SiteController::class, 'destroy'])->name('site-data.delete');
     Route::get('/site-transaction', [SiteController::class, 'siteTransaction'])->name('site-data.siteTransaction');
 });
 
@@ -51,6 +52,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
 Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::resource('outlet-data', OutletController::class);
     Route::get('/outlet-transaction', [OutletController::class, 'OutletTransaction'])->name('outlet-data.outletTransaction');
+    Route::delete('/outlet-data/delete/{id}', [OutletController::class, 'destroy'])->name('outlet-data.delete');
 });
 
 // Import Routes

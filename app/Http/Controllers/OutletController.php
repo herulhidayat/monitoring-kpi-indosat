@@ -31,9 +31,11 @@ class OutletController extends Controller
                     ->addColumn('action', function(Outlet $outlet){
                         $user = Auth::user();
                         if($user->role == 'Admin'){
-                            $btn = '<a type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bd-example-modal-xl" style="height: 30px; width: 30px"'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> <a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/outlet-data/delete/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
+                            $btn = '
+                                    <a type="button" class="btn btn-warning btn-xs" href="javascript:void(0);" data-toggle="modal" data-target="#editModal'.$outlet->id.'" style="height: 30px; width: 30px"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> 
+                                    <a type="button" class="delete_outlet btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$outlet->id.'" data-url="/outlet-data/delete/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         }else{
-                            $btn = '<a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/outlet-data/edit/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a>';
+                            $btn = '<a type="button" class="delete_outlet btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$outlet->id.'" data-url="/outlet-data/delete/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         }   
                         return $btn;
                     })
@@ -150,6 +152,6 @@ class OutletController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Outlet::find($id)->delete();
     }
 }
