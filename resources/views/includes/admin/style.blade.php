@@ -6,6 +6,7 @@
 <link href="{{asset('admin/plugins/font-awesome/css/all.min.css')}}" rel="stylesheet">
 <link href="{{asset('admin/plugins/DataTables/datatables.min.css')}}" rel="stylesheet">
 <link href="{{asset('admin/plugins/font/stylesheet.css')}}" rel="stylesheet">
+<link href="https://cdn.datatables.net/fixedcolumns/3.3.2/css/fixedColumns.dataTables.min.css" rel="stylesheet">
 
 
 <!-- Theme Styles -->
