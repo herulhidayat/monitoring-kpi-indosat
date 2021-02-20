@@ -65,6 +65,20 @@
             <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
                 <a href="mailbox.html"><i class="material-icons-outlined">book</i>Kamus</a>
             </li>
+            <li class="{{ (request()->routeIs('')) || (request()->routeIs('')) ? 'active-page' : '' }}">
+                <a><i class="material-icons-outlined">assignment</i>Rencana<i class="material-icons has-sub-menu">add</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Buat Rencana</a>
+                    </li>
+                    <li>
+                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Aktif</a>
+                    </li>
+                    <li>
+                        <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Selesai</a>
+                    </li>
+                </ul>
+            </li>
             <li class="{{ (request()->routeIs('import.*')) ? 'active-page' : '' }}">
                 <a href="{{ route('import.index') }}"><i class="material-icons-outlined">cloud_upload</i>Import Data</a>
             </li>

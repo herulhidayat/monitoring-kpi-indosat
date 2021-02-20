@@ -32,6 +32,83 @@
                             <tbody>
                             </tbody>
                         </table>
+                        <!-- Modal Edit -->
+                        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalCenterTitle">Edit Data Outlet</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <i class="material-icons">close</i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Site ID</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Site Name</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Micro Cluster</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Site Coverage</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Status</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Outlet Surrounding</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">ONO</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Total Outlet</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">URO</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">SSO</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">QURO</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">QSSO</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">Revenue</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formGroupExampleInput">GAP Revenue</label>
+                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

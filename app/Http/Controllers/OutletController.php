@@ -31,7 +31,7 @@ class OutletController extends Controller
                     ->addColumn('action', function(Outlet $outlet){
                         $user = Auth::user();
                         if($user->role == 'Admin'){
-                            $btn = '<a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/outlet-data/edit/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> <a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/outlet-data/delete/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
+                            $btn = '<a type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bd-example-modal-xl" style="height: 30px; width: 30px"'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> <a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/outlet-data/delete/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         }else{
                             $btn = '<a type="button" class="btn btn-warning btn-xs" style="height: 30px; width: 30px" href="/outlet-data/edit/'.$outlet->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a>';
                         }   
