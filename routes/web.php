@@ -19,12 +19,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Dashboard
 Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,CSO'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('/');
     Route::resource('dashboard', DashboardController::class);
 });
 // Kpi Routes

@@ -10,7 +10,7 @@
                 <div class="horizontal-bar-menu">
                     <ul>
                         @if($user->role !== 'Admin' && $user->role !== 'SPV')
-                        <li class="{{ (request()->routeIs('dashboard.*')) ? 'active-page' : '' }}">
+                        <li class="{{ (request()->routeIs('dashboard.*')) || (request()->routeIs('/')) ? 'active-page' : '' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="material-icons-outlined">dashboard</i> Dashboard</a>
                         </li>
                         @endif
