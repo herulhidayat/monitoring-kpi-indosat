@@ -69,3 +69,7 @@ Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
     Route::resource('user', UserController::class);
 });
 
+// Profile
+Route::put('editProfile/{id}', [UserController::class, 'update'])->name('editProfile');
+Route::put('editPassword/{id}', [UserController::class, 'changePassword'])->name('editPassword');
+
