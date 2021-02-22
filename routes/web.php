@@ -19,16 +19,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Dashboard
-Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,User'])->group(function () {
+Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,CSO'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('/');
     Route::resource('dashboard', DashboardController::class);
 });
 // Kpi Routes
-Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV,CSO'])->group(function () {
     Route::resource('kpi-data', KpiController::class);
     Route::delete('/kpi-data/delete/{id}', [KpiController::class, 'destroy'])->name('kpi-data.delete');
     Route::get('/kpi-msa', [KpiController::class, 'msa'])->name('kpi-data.msa');
@@ -42,7 +39,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
 });
 
 // Site Routes
-Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV,CSO'])->group(function () {
     Route::resource('site-data', SiteController::class);
     Route::put('/site-data/edit/{id}', [SiteController::class, 'update'])->name('site-data.edit');
     Route::delete('/site-data/delete/{id}', [SiteController::class, 'destroy'])->name('site-data.delete');
@@ -50,7 +47,7 @@ Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
 });
 
 // Outlet Routes
-Route::middleware(['auth', 'checkRole:Admin,SPV,User'])->group(function () {
+Route::middleware(['auth', 'checkRole:Admin,SPV,CSO'])->group(function () {
     Route::resource('outlet-data', OutletController::class);
     Route::put('/outlet-data/edit/{id}', [OutletController::class, 'update'])->name('outlet-data.edit');
     Route::get('/outlet-transaction', [OutletController::class, 'OutletTransaction'])->name('outlet-data.outletTransaction');
@@ -64,4 +61,12 @@ Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::post('import-site', [ImportController::class, 'importSite'])->name('import-site');
 });
 
+// User Routes
+Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
+    Route::resource('user', UserController::class);
+});
+
+// Profile
+Route::put('editProfile/{id}', [UserController::class, 'update'])->name('editProfile');
+Route::put('editPassword/{id}', [UserController::class, 'changePassword'])->name('editPassword');
 

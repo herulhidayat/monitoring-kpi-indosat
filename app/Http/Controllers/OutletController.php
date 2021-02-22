@@ -20,6 +20,8 @@ class OutletController extends Controller
         $user = Auth::user();
         if($user->role == 'Admin'){
             $data = Outlet::select('*')->get();
+        }elseif($user->role == 'SPV'){
+            $data = Outlet::where('micro_cluster', $user->micro_cluster_user)->get();
         }else{
             $data = Outlet::where('username', $user->username)->get();
         }

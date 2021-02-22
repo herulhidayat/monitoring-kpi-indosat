@@ -10,7 +10,7 @@
                 <div class="horizontal-bar-menu">
                     <ul>
                         @if($user->role !== 'Admin' && $user->role !== 'SPV')
-                        <li class="{{ (request()->routeIs('dashboard.*')) ? 'active-page' : '' }}">
+                        <li class="{{ (request()->routeIs('dashboard.*')) || (request()->routeIs('/')) ? 'active-page' : '' }}">
                             <a href="{{ route('dashboard.index') }}"><i class="material-icons-outlined">dashboard</i> Dashboard</a>
                         </li>
                         @endif
@@ -87,9 +87,11 @@
                             <a href="{{ route('import.index') }}"><i class="material-icons-outlined">cloud_upload</i> Import Data</a>
                         </li>
                         @endif
-                        <li class="{{ (request()->routeIs('/.*')) ? 'active-page' : '' }}">
-                            <a href="profile.html"><i class="material-icons-outlined">account_circle</i> User</a>
+                        @if($user->role == 'Admin')
+                        <li class="{{ (request()->routeIs('user.*')) ? 'active-page' : '' }}">
+                            <a href="{{ route('user.index') }}"><i class="material-icons-outlined">account_circle</i> User</a>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>
