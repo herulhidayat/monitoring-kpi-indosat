@@ -1,41 +1,5 @@
 @extends('layouts.master-admin')
 @section('content')
-<?php
-$score      = '';
-$not_order  = '';
-$msa_target = '';
-$msa_ach    = '';
-$msa_gap = '';
-$msa_nilai  = '';
-$omb_target = '';
-$omb_ach    = '';
-$omb_nilai = '';
-$omb_gap    = '';
-$qsso_target = '';
-$qsso_ach    = '';
-$qsso_nilai = '';
-$qsso_gap    = '';
-$quro_target = '';
-$quro_ach    = '';
-$quro_nilai = '';
-$quro_gap    = '';
-$sc_target = '';
-$sc_ach    = '';
-$sc_nilai = '';
-$sc_gap    = '';
-$ssohvc_target = '';
-$ssohvc_ach    = '';
-$ssohvc_nilai = '';
-$ssohvc_gap    = '';
-$sqsso_target = '';
-$sqsso_ach    = '';
-$sqsso_nilai = '';
-$sqsso_gap    = '';
-$ssc_target = '';
-$ssc_ach    = '';
-$ssc_nilai = '';
-$ssc_gap    = '';
-?>
 @foreach($data_dashboard as $data)
 <?php 
 $score      = $data->score;
