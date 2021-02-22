@@ -18,13 +18,13 @@
                             <a href=""><i class="material-icons-outlined">assignment</i> Rencana<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Buat Rencana</a>
+                                    <a href="/buat-rencana" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Buat Rencana</a>
                                 </li>
                                 <li>
-                                    <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Aktif</a>
+                                    <a href="/rencana-aktif" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Aktif</a>
                                 </li>
                                 <li>
-                                    <a href="" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Selesai</a>
+                                    <a href="/rencana-selesai" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Selesai</a>
                                 </li>
                             </ul>
                         </li>

@@ -7,6 +7,7 @@ use App\Http\Controllers\KpiController;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RencanaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,25 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/buat-rencana', function() {
-    return view('pages.rencana-buat');
-});
-
 // Dashboard
 Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,CSO'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('/');
     Route::resource('dashboard', DashboardController::class);
 });
+
+// Import Routes
+Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
+    Route::get('/buat-rencana', function() {
+        return view('pages.rencana-buat');
+    });
+    Route::get('/rencana-aktif', function() {
+        return view('pages.rencana-aktif');
+    });
+    Route::get('/rencana-selesai', function() {
+        return view('pages.rencana-selesai');
+    });
+});
+
 // Kpi Routes
 Route::middleware(['auth', 'checkRole:Admin,SPV,CSO'])->group(function () {
     Route::resource('kpi-data', KpiController::class);
