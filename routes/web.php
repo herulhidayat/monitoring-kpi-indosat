@@ -19,6 +19,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/buat-rencana', function() {
+    return view('pages.rencana-buat');
+});
+
 // Dashboard
 Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,CSO'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('/');
