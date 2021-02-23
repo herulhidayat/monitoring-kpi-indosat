@@ -35,80 +35,80 @@
         </div>         
     </nav>
 </div>
-                        <div class="modal fade" id="editProfile{{$current_user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Profile</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <i class="material-icons">close</i>
-                                        </buttn>
-                                    </div>
-                                    <div class="modal-body">
-                                            <meta name="csrf-token-editprofile" content="{{ csrf_token() }}">
-                                            <div class="form-group">
-                                                <label for="username">Username :</label>
-                                                @if($current_user->role == 'Admin')
-                                                <input type="text" class="form-control" id="current_username" value="{{$current_user->username}}" name="username" required autocomplete="off">
-                                                @else
-                                                <input type="text" class="form-control" readonly id="current_username" value="{{$current_user->username}}" name="username" required autocomplete="off">
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="name">Nama :</label>
-                                                <input type="text" class="form-control" id="current_name" value="{{$current_user->name}}" name="name" required autofocus autocomplete="off">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="micro_cluster">Role :</label>
-                                                <input type="text" readonly class="form-control" name="current_role" id="current_role" value="{{$current_user->role}}" name="name" required autofocus autocomplete="off">
-                                            </div>
-                                            @if($current_user->role !== 'Admin')
-                                            <div class="form-group">
-                                                <label for="micro_cluster">Micro Cluster :</label>
-                                                <input type="text" readonly class="form-control" id="current_cluster" value="{{$current_user->micro_cluster_user}}" name="name" required autofocus autocomplete="off">
-                                            </div>
-                                            @endif
-                                            <input type="hidden" name="current_password" id="current_password" value="">
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                        <button type="button" class="btn btn-primary editprofile" data-oldname="{{$current_user->name}}" data-oldusername="{{$current_user->username}}" data-oldrole="{{$current_user->role}}" data-oldpassword="{{$current_user->password}}" data-oldcluster="{{$current_user->micro_cluster_user}}" data-id="{{$current_user->id}}" data-url="{{ route('editProfile', $current_user->id) }}">Ubah</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal fade" id="editPassword{{$current_user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Ubah Password</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <i class="material-icons">close</i>
-                                        </buttn>
-                                    </div>
-                                    <div class="modal-body">
-                                            <meta name="csrf-token-editpassword" content="{{ csrf_token() }}">
-                                            <div class="form-group">
-                                                <label for="name">Current Password :</label>
-                                                <input type="password" class="form-control" id="password_before" name="password_before" required autofocus autocomplete="off">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="name">New Password :</label>
-                                                <input type="password" class="form-control" id="password_new" name="password_new" required autofocus autocomplete="off">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="name">Confirm Password :</label>
-                                                <input type="password" class="form-control" id="password_confirm" name="password_confirm" required autofocus autocomplete="off">
-                                            </div>
-                                            <input type="hidden" name="password_check" id="password_check" value="{{$current_user->password}}">
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                        <button type="button" class="btn btn-primary editpassword" data-id="{{$current_user->id}}" data-url="{{ route('editPassword', $current_user->id) }}">Ubah</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<div class="modal fade" id="editProfile{{$current_user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </buttn>
+            </div>
+            <div class="modal-body">
+                    <meta name="csrf-token-editprofile" content="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <label for="username">Username :</label>
+                        @if($current_user->role == 'Admin')
+                        <input type="text" class="form-control" id="current_username" value="{{$current_user->username}}" name="username" required autocomplete="off">
+                        @else
+                        <input type="text" class="form-control" readonly id="current_username" value="{{$current_user->username}}" name="username" required autocomplete="off">
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Nama :</label>
+                        <input type="text" class="form-control" id="current_name" value="{{$current_user->name}}" name="name" required autofocus autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="micro_cluster">Role :</label>
+                        <input type="text" readonly class="form-control" name="current_role" id="current_role" value="{{$current_user->role}}" name="name" required autofocus autocomplete="off">
+                    </div>
+                    @if($current_user->role !== 'Admin')
+                    <div class="form-group">
+                        <label for="micro_cluster">Micro Cluster :</label>
+                        <input type="text" readonly class="form-control" id="current_cluster" value="{{$current_user->micro_cluster_user}}" name="name" required autofocus autocomplete="off">
+                    </div>
+                    @endif
+                    <input type="hidden" name="current_password" id="current_password" value="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary editprofile" data-oldname="{{$current_user->name}}" data-oldusername="{{$current_user->username}}" data-oldrole="{{$current_user->role}}" data-oldpassword="{{$current_user->password}}" data-oldcluster="{{$current_user->micro_cluster_user}}" data-id="{{$current_user->id}}" data-url="{{ route('editProfile', $current_user->id) }}">Ubah</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editPassword{{$current_user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Ubah Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </buttn>
+            </div>
+            <div class="modal-body">
+                    <meta name="csrf-token-editpassword" content="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <label for="name">Current Password :</label>
+                        <input type="password" class="form-control" id="password_before" name="password_before" required autofocus autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">New Password :</label>
+                        <input type="password" class="form-control" id="password_new" name="password_new" required autofocus autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Confirm Password :</label>
+                        <input type="password" class="form-control" id="password_confirm" name="password_confirm" required autofocus autocomplete="off">
+                    </div>
+                    <input type="hidden" name="password_check" id="password_check" value="{{$current_user->password}}">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary editpassword" data-id="{{$current_user->id}}" data-url="{{ route('editPassword', $current_user->id) }}">Ubah</button>
+            </div>
+        </div>
+    </div>
+</div>
 @push('addon-script')
 <script type="text/javascript">
 $(document).ready(function() {

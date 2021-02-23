@@ -4,8 +4,9 @@
     <div class="page-info">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Outlet</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data Outlet</li>
+                <li class="breadcrumb-item"><a href="">Indosat</a></li>
+                <li class="breadcrumb-item"><a href="">Outlet</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
             </ol>
         </nav>
     </div>
