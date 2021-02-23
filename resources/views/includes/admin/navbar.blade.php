@@ -9,7 +9,7 @@
             </li>
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{asset('admin/images/avatars/profile-image-1.png')}}" alt="profile image">
+                    <img src="{{asset('admin/images/avatars/profile-image-2.png')}}" alt="profile image">
                     <span>{{auth()->user()->name}}</span><i class="material-icons dropdown-icon">keyboard_arrow_down</i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -27,7 +27,7 @@
         </ul>
         <div class="navbar-collapse">
             <div class="navbar-nav">
-                <div class="logo-box"><a href="#" class="logo-text">monitoring</a></div>
+                <div class="logo-box"><a href="#" class="logo-text">indosat makassar</a></div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

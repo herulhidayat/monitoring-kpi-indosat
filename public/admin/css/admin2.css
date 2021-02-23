@@ -19,6 +19,8 @@ a:hover {
 
 .logo-box a.logo-text {
     color: #e60000;
+    text-transform: lowercase;
+    font-family: 'ooredooheavy', sans-serif;
 }
 
 .logo-box a.logo-text:hover {

@@ -6,24 +6,18 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Transaksi Outlet</h5>
+                        <h5 class="card-title">Rencana Aktif</h5>
                         <table class="table table-bordered data-table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th rowspan="2">Outlet ID</th>
-                                    <th rowspan="2">Outlet Name</th>
-                                    <th rowspan="2">Saldo</th>
-                                    <th rowspan="2">Transaksi MOBO</th>
-                                    <th colspan="3">Sultan</th>
-                                    <th colspan="3">Jawara</th>
-                                </tr>
-                                <tr>
-                                    <th>Target</th>
-                                    <th>Ach</th>
-                                    <th>Percen</th>
-                                    <th>Target</th>
-                                    <th>Ach</th>
-                                    <th>Percen</th>
+                                    <th>No.</th>
+                                    <th>Judul</th>
+                                    <th>Isi Rencana/Target</th>
+                                    <th>Nama CSO</th>
+                                    <th>Tanggal Mulai</th>
+                                    <th>Tanggal Berakhir</th>
+                                    <th>Konfirmasi</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,6 +25,31 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ini tombolnya modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".rincian-hasil">Small modal</button>
+<!-- ini modalnya -->
+<div class="modal fade rincian-hasil" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Rincian Hasil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Silahkan masukkan rincian hasil:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Done</button>
             </div>
         </div>
     </div>
