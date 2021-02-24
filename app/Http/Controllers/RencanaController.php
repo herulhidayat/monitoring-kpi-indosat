@@ -8,6 +8,7 @@ use DataTables;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
 
 class RencanaController extends Controller
 {
@@ -18,7 +19,20 @@ class RencanaController extends Controller
      */
     public function index()
     {
-        //
+        $now = carbon::now();
+        $data = Rencana::whereDate('rencana_end', '>=', $now->toDateString())->get();
+        return view('pages.rencana-aktif', [
+                'data_rencana'         => $data,
+            ]);
+    }
+
+    public function selesai()
+    {
+        $now = carbon::now();
+        $data = Rencana::whereDate('rencana_end', '<', $now->toDateString())->get();
+        return view('pages.rencana-selesai', [
+                'data_rencana'         => $data,
+            ]);
     }
 
     /**
@@ -28,7 +42,7 @@ class RencanaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.rencana-buat');
     }
 
     /**

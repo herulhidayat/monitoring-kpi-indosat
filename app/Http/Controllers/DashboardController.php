@@ -23,7 +23,7 @@ class DashboardController extends Controller
                 'data_dashboard'         => $data,
             ]);
         }else{
-            return redirect()->route('import.index');
+            return redirect()->route('rencana.index');
         }
     }
 

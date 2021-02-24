@@ -14,17 +14,19 @@
                             <a href="{{ route('dashboard.index') }}"><i class="material-icons-outlined">dashboard</i> Dashboard</a>
                         </li>
                         @endif
-                        <li class="{{ (request()->routeIs('')) || (request()->routeIs('')) ? 'active-page' : '' }}">
+                        <li class="{{ (request()->routeIs('rencana.*')) ? 'active-page' : '' }}">
                             <a href=""><i class="material-icons-outlined">assignment</i> Rencana<i class="material-icons">keyboard_arrow_down</i></a>
                             <ul class="sub-menu">
+                                @if($user->role !== 'CSO')
                                 <li>
-                                    <a href="/buat-rencana" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Buat Rencana</a>
+                                    <a href="{{ route('rencana.create') }}" class="{{ (request()->routeIs('rencana.create')) ? 'active' : '' }}">Buat Rencana</a>
+                                </li>
+                                @endif
+                                <li>
+                                    <a href="{{ route('rencana.index') }}" class="{{ (request()->routeIs('rencana.index')) ? 'active' : '' }}">Rencana Aktif</a>
                                 </li>
                                 <li>
-                                    <a href="/rencana-aktif" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Aktif</a>
-                                </li>
-                                <li>
-                                    <a href="/rencana-selesai" class="{{ (request()->routeIs('')) ? 'active' : '' }}">Rencana Selesai</a>
+                                    <a href="{{ route('rencana.selesai') }}" class="{{ (request()->routeIs('rencana.selesai')) ? 'active' : '' }}">Rencana Selesai</a>
                                 </li>
                             </ul>
                         </li>

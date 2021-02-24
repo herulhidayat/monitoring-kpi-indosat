@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rencana extends Model
 {
     use HasFactory;
-    protected $table = 'outlet';
+    protected $table = 'rencana';
     protected $fillable = [
     	'user_id',
         'cso_id',

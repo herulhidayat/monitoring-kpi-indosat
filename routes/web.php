@@ -26,17 +26,15 @@ Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,CSO'])->group(function (
     Route::resource('dashboard', DashboardController::class);
 });
 
-// Import Routes
-Route::middleware(['auth', 'checkRole:Admin'])->group(function () {
-    Route::get('/buat-rencana', function() {
-        return view('pages.rencana-buat');
-    });
-    Route::get('/rencana-aktif', function() {
-        return view('pages.rencana-aktif');
-    });
-    Route::get('/rencana-selesai', function() {
-        return view('pages.rencana-selesai');
-    });
+// Rencana Buat Routes
+Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
+    Route::get('/buat-rencana', [RencanaController::class, 'create'])->name('rencana.create');
+});
+
+// Rencana Routes
+Route::middleware(['auth', 'checkRole:Admin,SPV,CSO'])->group(function () {
+    Route::get('/rencana-aktif', [RencanaController::class, 'index'])->name('rencana.index');
+    Route::get('/rencana-selesai', [RencanaController::class, 'selesai'])->name('rencana.selesai');
 });
 
 // Kpi Routes

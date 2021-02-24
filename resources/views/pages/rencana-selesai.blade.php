@@ -1,5 +1,8 @@
 @extends('layouts.master-admin')
 @section('content')
+<?php 
+    $user = $user = Auth::user();
+?>
 <div class="page-content">
     <div class="page-info">
         <nav aria-label="breadcrumb">
@@ -23,6 +26,9 @@
                                     <th>Judul</th>
                                     <th>Isi Rencana/Target</th>
                                     <th>Nama CSO</th>
+                                    @if($user->role == 'Admin' || $user->role == 'CSO')
+                                    <th>Nama SPV</th>
+                                    @endif
                                     <th>Tanggal Mulai</th>
                                     <th>Tanggal Berakhir</th>
                                     <th>Status</th>
