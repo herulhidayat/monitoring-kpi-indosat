@@ -84,22 +84,23 @@
             </div>
             <div class="modal-body">
                 <meta name="csrf-token-edit" content="{{ csrf_token() }}">
+                <input type="hidden" readonly class="form-control" id="id_rencana_edit">
                     <div class="form-group">
                         <label>Judul</label>
-                        <input type="text" class="form-control" required name="judul">
+                        <input type="text" class="form-control" required id="judul">
                     </div>
                     <div class="form-group">
                         <label>Rencana/Target</label>
-                        <textarea class="form-control" rows="3" required name="isi"></textarea>
+                        <textarea class="form-control" rows="3" required id="isi"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Batas Waktu</label>
-                        <input type="date"class="form-control" rows="3" required name="rencana_end">
+                        <input type="date"class="form-control" rows="3" required id="rencana_end">
                     </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="submit" onclick="check()" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary editdata">Submit</button>
             </div>
         </div>
     </div>
@@ -175,9 +176,9 @@ $(document).ready(function() {
                         var id=$(this).data('id');
                         var judul=$(this).data('judul');
                         var isi=$(this).data('isi');
-                        var rencana_end=$(this).data('rencana_end');
+                        var rencana_end=$(this).data('end');
             $('#editModalRencana').modal('show');
-                        $('#id_rencana').val(id);
+                        $('#id_rencana_edit').val(id);
                         $('#judul').val(judul);
                         $('#isi').val(isi);
                         $('#rencana_end').val(rencana_end)
@@ -185,18 +186,19 @@ $(document).ready(function() {
 
     $('.editdata').click(function(e){
         e.preventDefault();
-        var id      = $('#id_rencana').val();
-        var judul  = $('#judul').val();
-        var isi     = $('#isi').val();
-        var rencana_end    = $('#rencana_end').val();
+        var id              = $('#id_rencana_edit').val();
+        var judul           = $('#judul').val();
+        var isi             = $('#isi').val();
+        var rencana_end     = $('#rencana_end').val();
+        console.log(id);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token-edit"]').attr('content')
             }
         });
         $.ajax({
-            url: '/rencana-aktif/edit/'+id,
-            data:{id:id, judul:judul, isi:isi, rencana_end},
+            url: '/rencana/edit/'+id,
+            data:{id:id, judul:judul, isi:isi, rencana_end:rencana_end},
             method:'PUT',
             success:function(data){
                 Swal.fire({

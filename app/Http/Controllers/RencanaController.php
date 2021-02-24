@@ -53,7 +53,7 @@ class RencanaController extends Controller
                     ->addIndexColumn()
                     ->addColumn('action', function(Rencana $rencana){
                         $btn = '
-                                <a type="button" class="edit_rencana btn btn-warning btn-xs" href="javascript:void(0);" data-id="'.$rencana->id.'" style="height: 30px; width: 30px"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> 
+                                <a type="button" class="edit_rencana btn btn-warning btn-xs" href="javascript:void(0);" data-id="'.$rencana->id.'" data-judul="'.$rencana->judul.'" data-isi="'.$rencana->isi.'" data-end="'.$rencana->rencana_end.'" style="height: 30px; width: 30px"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">create</i></a> 
                                 <a type="button" class="delete_rencana btn btn-danger btn-xs" style="height: 30px; width: 30px" data-id="'.$rencana->id.'" data-url="/rencana/delete/'.$rencana->id.'"><i class="material-icons-outlined" style="vertical-align: middle; font-size: 18px">delete</i></a>';
                         return $btn;
                     })
@@ -194,7 +194,12 @@ class RencanaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Rencana::where('id', $id);
+        $data->update([
+            'judul'       => $request->judul,
+            'isi'  => $request->isi,
+            'rencana_end' => $request->rencana_end,
+        ]);
     }
 
     /**
