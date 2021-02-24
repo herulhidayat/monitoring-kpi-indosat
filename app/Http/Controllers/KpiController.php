@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kpi;
+use App\Models\LastUpload;
 use DataTables;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -68,7 +69,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-score');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-score', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function msa(Request $request)
@@ -101,7 +105,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-msa');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-msa', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function omb(Request $request)
@@ -134,7 +141,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-omb');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-omb', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function qsso(Request $request)
@@ -167,7 +177,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-qsso');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-qsso', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function quro(Request $request)
@@ -200,7 +213,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-quro');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-quro', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function sc(Request $request)
@@ -233,7 +249,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-sc');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-sc', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function ssohvc(Request $request)
@@ -266,7 +285,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-ssohvc');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-ssohvc', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function sqsso(Request $request)
@@ -299,7 +321,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-sqsso');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-sqsso', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     public function ssc(Request $request)
@@ -332,7 +357,10 @@ class KpiController extends Controller
                     ->toJson();
         }
 
-        return view('pages.kpi-ssc');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.kpi-ssc', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     /**

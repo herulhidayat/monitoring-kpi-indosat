@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Outlet;
+use App\Models\LastUpload;
 use DataTables;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -49,8 +50,9 @@ class OutletController extends Controller
         }
 
 
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
         return view('pages.outlet-data', [
-            'data_outlet'         => $data,
+                'data_upload'         => $data_upload,
             ]);
     }
 
@@ -93,7 +95,10 @@ class OutletController extends Controller
                     ->toJson();
         }
 
-        return view('pages.outlet-transaction');
+        $data_upload = LastUpload::where('kategori', 'kpi_outlet')->get();
+        return view('pages.outlet-transaction', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
     /**

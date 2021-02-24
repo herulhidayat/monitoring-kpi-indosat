@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Site;
+use App\Models\LastUpload;
 use DataTables;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -44,8 +45,9 @@ class SiteController extends Controller
                     ->toJson();
         }
 
+        $data_upload = LastUpload::where('kategori', 'site')->get();
         return view('pages.site-data', [
-            'data_site'         => $data,
+                'data_upload'         => $data_upload,
             ]);
     }
 
@@ -70,7 +72,10 @@ class SiteController extends Controller
                     ->toJson();
         }
 
-        return view('pages.site-transaction');
+        $data_upload = LastUpload::where('kategori', 'site')->get();
+        return view('pages.site-transaction', [
+                'data_upload'         => $data_upload,
+            ]);
     }
 
 

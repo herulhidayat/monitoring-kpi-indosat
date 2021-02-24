@@ -29,12 +29,14 @@ Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,CSO'])->group(function (
 // Rencana Buat Routes
 Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::get('/buat-rencana', [RencanaController::class, 'create'])->name('rencana.create');
+    Route::delete('/rencana/delete/{id}', [RencanaController::class, 'destroy'])->name('rencana.delete');
 });
 
 // Rencana Routes
 Route::middleware(['auth', 'checkRole:Admin,SPV,CSO'])->group(function () {
     Route::get('/rencana-aktif', [RencanaController::class, 'index'])->name('rencana.index');
     Route::get('/rencana-selesai', [RencanaController::class, 'selesai'])->name('rencana.selesai');
+    Route::put('/rencana/done/{id}', [RencanaController::class, 'done'])->name('rencana.done');
 });
 
 // Kpi Routes

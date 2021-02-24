@@ -3,6 +3,12 @@
 <?php
     $user = Auth::user(); 
 ?>
+<?php $upload = 'Belum Ada Data' ?>
+@foreach($data_upload as $data)
+<?php
+    $upload = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $data->waktu_upload)->format('H:i:s | d/m/Y');
+?>
+@endforeach
 <div class="page-content">
     <div class="page-info">
         <nav aria-label="breadcrumb">
@@ -18,7 +24,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Data Site</h5>
+                        <h5 class="card-title">Data Site <span style="float: right;"><i>Last Update : {{$upload}}</i></span></h5>
                         <table class="table table-bordered data-table" style="width:100%">
                             <meta name="csrf-token-delete" content="{{ csrf_token() }}">
                             <thead>
