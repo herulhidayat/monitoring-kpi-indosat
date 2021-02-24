@@ -23,6 +23,9 @@ class Outlet extends Model
     	'jawara_target',
     	'jawara_ach',
     	'jawara_percen',
+        'sellin_sp',
+        'sellin_daily',
+        'mobo_daily',
     ];
 
     public $timestamps = false;

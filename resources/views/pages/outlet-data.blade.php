@@ -24,6 +24,7 @@
                                     <th>Outlet Name</th>
                                     <th>Micro Cluster</th>
                                     <th>Category</th>
+                                    <th>Saldo</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -117,6 +118,7 @@ $(document).ready(function() {
             {data: 'outlet_name', name: 'outlet_name'},
             {data: 'micro_cluster', name: 'micro_cluster'},
             {data: 'category', name: 'category'},
+            {data: 'balance', name: 'balance'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ],
         order: [ 0 , 'desc'],

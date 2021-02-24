@@ -32,6 +32,9 @@ class OutletSheetImport implements ToModel, WithStartRow, WithUpserts, WithCalcu
         'jawara_target' => $row[16],
         'jawara_ach'    => $row[17],
         'jawara_percen' => $row[18],
+        'sellin_sp'     => $row[21],
+        'sellin_daily'  => $row[28],
+        'mobo_daily'    => $row[29],
        
         ]);
     }

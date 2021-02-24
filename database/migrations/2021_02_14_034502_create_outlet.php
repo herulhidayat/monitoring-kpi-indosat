@@ -28,6 +28,9 @@ class CreateOutlet extends Migration
             $table->string('jawara_target')->nullable();
             $table->string('jawara_ach')->nullable();
             $table->string('jawara_percen')->nullable();
+            $table->string('sellin_sp')->nullable();
+            $table->string('sellin_daily')->nullable();
+            $table->string('mobo_daily')->nullable();
             $table->timestamps();
         });
     }

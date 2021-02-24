@@ -42,6 +42,9 @@ class OutletController extends Controller
                         return $btn;
                     })
                     ->rawColumns(['action'])
+                    ->editColumn('balance', function (Outlet $outlet) {
+                        return number_format(round($outlet->balance),0,"",".");
+                    })
                     ->toJson();
         }
 
@@ -63,11 +66,11 @@ class OutletController extends Controller
         if ($request->ajax()) {
             
             return Datatables::of($data)
-                    ->editColumn('balance', function (Outlet $outlet) {
-                        return number_format(round($outlet->balance),0,"",".");
-                    })
                     ->editColumn('mobo_transaction', function (Outlet $outlet) {
                         return number_format(round($outlet->mobo_transaction),0,"",".");
+                    })
+                    ->editColumn('mobo_daily', function (Outlet $outlet) {
+                        return number_format(round($outlet->mobo_daily),0,"",".");
                     })
                     ->editColumn('sultan_target', function (Outlet $outlet) {
                         return number_format(round($outlet->sultan_target),0,"",".");

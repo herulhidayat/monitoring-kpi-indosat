@@ -21,12 +21,15 @@
                                 <tr>
                                     <th rowspan="2">Outlet ID</th>
                                     <th rowspan="2">Outlet Name</th>
-                                    <th rowspan="2">Saldo</th>
                                     <th rowspan="2">Transaksi MOBO</th>
+                                    <th colspan="3">Effective call</th>
                                     <th colspan="3">Sultan</th>
                                     <th colspan="3">Jawara</th>
                                 </tr>
                                 <tr>
+                                    <th>Sellin 90D</th>
+                                    <th>Daily Sellin</th>
+                                    <th>Daily Mobo</th>
                                     <th>Target</th>
                                     <th>Ach</th>
                                     <th>Percen</th>
@@ -60,8 +63,10 @@
         columns: [
             {data: 'outlet_id', name: 'outlet_id'},
             {data: 'outlet_name', name: 'outlet_name'},
-            {data: 'balance', name: 'balance'},
             {data: 'mobo_transaction', name: 'mobo_transaction'},
+            {data: 'sellin_sp', name: 'sellin_sp'},
+            {data: 'sellin_daily', name: 'sellin_daily'},
+            {data: 'mobo_daily', name: 'mobo_daily'},
             {data: 'sultan_target', name: 'sultan_target'},
             {data: 'sultan_ach', name: 'sultan_ach'},
             {data: 'sultan_percen', name: 'sultan_percen'},
