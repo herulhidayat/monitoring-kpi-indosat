@@ -91,8 +91,13 @@ $ssc_gap    = $data->ssc_gap;
                         Plan Hari Ini
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Supject Plan</h5>
+                        @if($data_rencana == null)
+                        <h5 class="card-title">Tidak Ada Data</h5>
+                        <p class="card-text">Tidak Ada Data</p>
+                        @else
+                        <h5 class="card-title">{{$data_rencana->judul}}</h5>
                         <p class="card-text">{{$data_rencana->isi}}</p>
+                        @endif
                         <a href="{{ route('rencana.index') }}" class="btn btn-primary">Lebih Detail</a>
                     </div>
                 </div>

@@ -80,22 +80,28 @@ class RencanaController extends Controller
             $data = Rencana::join('users as spv', 'rencana.user_id', '=', 'spv.id')
                     ->join('users as cso', 'rencana.cso_id', '=', 'cso.id')
                     ->whereDate('rencana_end', '<', $now->toDateString())
-                    ->Orwhere('status', '!=', 'Belum Selesai')
+                    ->Orwhere('status', '=', 'Selesai')
                     ->select('rencana.*', 'spv.name as nama_spv', 'cso.username as nama_cso')
                     ->get();
         }elseif($user->role == 'SPV'){
             $data = Rencana::join('users as cso', 'rencana.cso_id', '=', 'cso.id')
                     ->where('user_id', $user->id)
-                    ->whereDate('rencana_end', '<', $now->toDateString())
-                    ->Orwhere('status', '!=', 'Belum Selesai')
+                    ->where(function ($query) {
+                        $now = carbon::now();
+                        $query->where('status', '=', 'Selesai')
+                            ->orWhereDate('rencana_end', '<', $now->toDateString());
+                        })
                     ->select('rencana.*', 'cso.username as nama_cso')
                     ->get();
         }else{
             $data = Rencana::join('users as spv', 'rencana.user_id', '=', 'spv.id')
                     ->join('users as cso', 'rencana.cso_id', '=', 'cso.id')
                     ->where('cso_id', $user->id)
-                    ->whereDate('rencana_end', '<', $now->toDateString())
-                    ->Orwhere('status', '!=', 'Belum Selesai')
+                    ->where(function ($query) {
+                        $now = carbon::now();
+                        $query->where('status', '=', 'Selesai')
+                            ->orWhereDate('rencana_end', '<', $now->toDateString());
+                        })
                     ->select('rencana.*', 'spv.name as nama_spv', 'cso.username as nama_cso')
                     ->get();
         }
