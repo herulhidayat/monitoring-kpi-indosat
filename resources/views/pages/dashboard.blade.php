@@ -86,14 +86,14 @@ $ssc_gap    = $data->ssc_gap;
     <div class="main-wrapper">
         <div class="row">
             <div class="col-xl">
-                <div class="card text-center">
-                    <div class="card-header">
+                <div class="card">
+                    <div class="card-header text-center">
                         Plan Hari Ini
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Supject Plan</h5>
-                        <p class="card-text">Isi Plan</p>
-                        <a href="#" class="btn btn-primary">Lebih Detail</a>
+                        <p class="card-text">{{$data_rencana->isi}}</p>
+                        <a href="{{ route('rencana.index') }}" class="btn btn-primary">Lebih Detail</a>
                     </div>
                 </div>
                 <div class="card text-center">
