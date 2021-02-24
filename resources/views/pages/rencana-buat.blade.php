@@ -16,32 +16,31 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Buat Rencana</h5>
-                        <form>
+                        <form method="POST" action="{{ route('rencana.store') }}" enctype="multipart/form-data">
+                            {{csrf_field()}}
                             <div class="form-group">
                                 <label>Judul</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" required name="judul">
                             </div>
                             <div class="form-group">
                                 <label>Rencana/Target</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3" required name="isi"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Batas Waktu</label>
+                                <input type="date"class="form-control" rows="3" required name="rencana_end">
                             </div>
                             <div>
                                 <label>Pilih CSO:</label>
+                                @foreach($data_cso as $data)
                                 <div class="custom-control custom-checkbox form-group">
-                                    <input type="checkbox" class="custom-control-input" id="exampleCheck1">
-                                    <label class="custom-control-label" for="exampleCheck1">IDCSO1</label>
+                                    <input type="checkbox" class="custom-control-input" name="cso[]" id="{{$data->username}}" value="{{$data->id}}">
+                                    <label class="custom-control-label" for="{{$data->username}}">{{$data->username}}</label>
                                 </div>
-                                <div class="custom-control custom-checkbox form-group">
-                                    <input type="checkbox" class="custom-control-input" id="exampleCheck1">
-                                    <label class="custom-control-label" for="exampleCheck1">IDCSO2</label>
-                                </div>
-                                <div class="custom-control custom-checkbox form-group">
-                                    <input type="checkbox" class="custom-control-input" id="exampleCheck1">
-                                    <label class="custom-control-label" for="exampleCheck1">IDCSO3</label>
-                                </div>
+                                @endforeach
                             </div>
                             
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" onclick="check()" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>

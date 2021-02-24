@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rencana;
+use App\Models\User;
 use DataTables;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -124,7 +125,16 @@ class RencanaController extends Controller
      */
     public function create()
     {
-        return view('pages.rencana-buat');
+        $user = Auth::user();
+        if($user->role == 'Admin'){
+            $data = User::where('role', '=', 'CSO')->get();
+        }else{
+            $data = User::where('role', '=', 'CSO')->where('micro_cluster_user', $user->micro_cluster_user)->get();
+        }
+
+        return view('pages.rencana-buat', [
+            'data_cso'        => $data,
+        ]);
     }
 
     /**
@@ -135,7 +145,22 @@ class RencanaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $now = carbon::now();
+        $user = Auth::user();
+        if($request->cso !== null){
+            foreach($request->cso as $data){
+                $rencana            = new Rencana;
+                $rencana->user_id   = $user->id;
+                $rencana->cso_id    = $data;
+                $rencana->judul     = $request->judul;
+                $rencana->isi       = $request->isi;
+                $rencana->rencana_start = $now->toDateString();
+                $rencana->rencana_end   = $request->rencana_end;
+                $rencana->status        = 'Belum Selesai';
+                $rencana->save();
+            }
+        }
+        return redirect()->route('rencana.create');
     }
 
     /**

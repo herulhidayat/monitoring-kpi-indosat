@@ -29,6 +29,7 @@ Route::middleware(['auth:sanctum', 'checkRole:Admin,SPV,CSO'])->group(function (
 // Rencana Buat Routes
 Route::middleware(['auth', 'checkRole:Admin,SPV'])->group(function () {
     Route::get('/buat-rencana', [RencanaController::class, 'create'])->name('rencana.create');
+    Route::post('/rencana/store', [RencanaController::class, 'store'])->name('rencana.store');
     Route::delete('/rencana/delete/{id}', [RencanaController::class, 'destroy'])->name('rencana.delete');
 });
 

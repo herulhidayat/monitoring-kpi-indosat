@@ -76,7 +76,11 @@ $(document).ready(function() {
                 {data: 'action', name: 'action', orderable: false, searchable: false},
                 <?php } ?>
             ],
-            order: [ 0 , 'desc'],
+            <?php if($user->role == 'Admin' || $user->role == 'CSO'){ ?>
+            order: [ 5 , 'desc'],
+            <?php }else{ ?>
+            order: [ 4 , 'desc'],
+            <?php } ?>
         });
     });
 
