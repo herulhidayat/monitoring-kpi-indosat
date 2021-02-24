@@ -72,6 +72,38 @@
         </div>
     </div>
 </div>
+<!-- Modal Edit -->
+<div class="modal fade" id="editModalRencana" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalCenterTitle">Edit Rencana</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <meta name="csrf-token-edit" content="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <label>Judul</label>
+                        <input type="text" class="form-control" required name="judul">
+                    </div>
+                    <div class="form-group">
+                        <label>Rencana/Target</label>
+                        <textarea class="form-control" rows="3" required name="isi"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Batas Waktu</label>
+                        <input type="date"class="form-control" rows="3" required name="rencana_end">
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" onclick="check()" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 @push('addon-script')
 <script type="text/javascript">
@@ -131,6 +163,46 @@ $(document).ready(function() {
                 icon: 'success',
                 title: 'Berhasil',
                 text: 'Rencana/Target Diselesaikan',
+                });
+                setTimeout(function(){
+                location.reload();
+                }, 1000);
+            }
+        });
+    });
+
+    $('.data-table').on('click','.edit_rencana',function(){
+                        var id=$(this).data('id');
+                        var judul=$(this).data('judul');
+                        var isi=$(this).data('isi');
+                        var rencana_end=$(this).data('rencana_end');
+            $('#editModalRencana').modal('show');
+                        $('#id_rencana').val(id);
+                        $('#judul').val(judul);
+                        $('#isi').val(isi);
+                        $('#rencana_end').val(rencana_end)
+    });
+
+    $('.editdata').click(function(e){
+        e.preventDefault();
+        var id      = $('#id_rencana').val();
+        var judul  = $('#judul').val();
+        var isi     = $('#isi').val();
+        var rencana_end    = $('#rencana_end').val();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token-edit"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/rencana-aktif/edit/'+id,
+            data:{id:id, judul:judul, isi:isi, rencana_end},
+            method:'PUT',
+            success:function(data){
+                Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: 'Rencana Berhasil Diubah!',
                 });
                 setTimeout(function(){
                 location.reload();
