@@ -146,7 +146,7 @@ $ssc_gap    = $data->ssc_gap;
                             <div class="col">
                                 <div class="dashboard-stat">
                                     <p>{{number_format(round($msa_gap),0,"",".")}}</p>
-                                    <span>GAP</span>
+                                    <span>GAP Outlet</span>
                                 </div>
                             </div>
                             <div class="col">

@@ -2,9 +2,11 @@
 @section('content')
 <?php $upload = 'Belum Ada Data' ?>
 @foreach($data_upload as $data)
-<?php
-    $upload = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $data->waktu_upload)->format('H:i:s | d/m/Y');
-?>
+@if($data->waktu_upload !== null)
+    <?php
+        $upload = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $data->waktu_upload)->format('H:i:s | d/m/Y');
+    ?>
+    @endif
 @endforeach
 <div class="page-content">
     <div class="page-info">
@@ -33,7 +35,7 @@
                                 <tr>
                                     <th>Target</th>
                                     <th>Ach</th>
-                                    <th>Gap</th>
+                                    <th>Gap Outlet</th>
                                     <th>Percen</th>
                                     <th>Nilai</th>
                                 </tr>
